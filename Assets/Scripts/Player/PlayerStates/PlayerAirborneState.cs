@@ -6,11 +6,16 @@ public class PlayerAirborneState : PlayerBaseState
 
     public override void EnterState(PlayerStateManager Player)
     {
-        Debug.Log("airborne State");
+        Debug.Log("Hello from the airborne State");
     }
     public override void UpdateState(PlayerStateManager Player)
     {
-
+        
+        if (Player.IsGrounded)
+        {
+            Debug.Log("player is grounded");
+            Player.SwitchState(Player.groundedState);
+        }
     }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)

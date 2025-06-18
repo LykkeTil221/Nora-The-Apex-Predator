@@ -12,8 +12,12 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerAttackState attackState = new PlayerAttackState();
     public PlayerGrappleState grappleState = new PlayerGrappleState();
 
+    public Rigidbody Rigidbody;
+    public bool IsGrounded = true;
+
     private void Start()
     {
+        PlayerVars.PlayerTransform = transform;
         print("GroundedState");
         currentState = groundedState;
 

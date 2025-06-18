@@ -28,6 +28,7 @@ public class PlayerGroundedState : PlayerBaseState
 
     public override void Jump(PlayerStateManager Player)
     {
+        Player.Rigidbody.AddForce(Vector3.up * Player.PlayerVars.JumpStrength,ForceMode.Impulse);
         Player.SwitchState(Player.airborneState);
     }
 
