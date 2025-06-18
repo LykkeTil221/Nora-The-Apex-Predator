@@ -80,7 +80,7 @@ MonoBehaviour:
       - m_Target: {fileID: 454843375835950733}
         m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: LeftPunch
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -96,7 +96,7 @@ MonoBehaviour:
       - m_Target: {fileID: 454843375835950733}
         m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: RightPunch
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -112,7 +112,7 @@ MonoBehaviour:
       - m_Target: {fileID: 454843375835950733}
         m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: LeftSpecial
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -125,10 +125,10 @@ MonoBehaviour:
     m_ActionName: 'Player/Left Special[/DualSenseGamepadHID/leftTrigger,/Keyboard/q]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2717489103806727396}
-        m_TargetAssemblyTypeName: PlayerInputScript, Assembly-CSharp
+      - m_Target: {fileID: 454843375835950733}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: RightSpecial
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -144,7 +144,7 @@ MonoBehaviour:
       - m_Target: {fileID: 454843375835950733}
         m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: Dodge
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -160,7 +160,7 @@ MonoBehaviour:
       - m_Target: {fileID: 454843375835950733}
         m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: Jump
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -176,7 +176,7 @@ MonoBehaviour:
       - m_Target: {fileID: 454843375835950733}
         m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: Interact
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -192,7 +192,7 @@ MonoBehaviour:
       - m_Target: {fileID: 454843375835950733}
         m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: Cancel
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
