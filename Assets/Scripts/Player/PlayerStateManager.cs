@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerStateManager : MonoBehaviour
 {
+    public PlayerVariableContainer PlayerVars;
+
     PlayerBaseState currentState;
     public PlayerGroundedState groundedState = new PlayerGroundedState();
     public PlayerAirborneState airborneState = new PlayerAirborneState();

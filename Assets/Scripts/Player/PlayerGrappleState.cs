@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class PlayerGrappleState : PlayerBaseState
 {
+    private float timer;
     public override void EnterState(PlayerStateManager Player)
     {
-        Debug.Log("Hello from the Grapple state!");
+        timer = Player.PlayerVars.GrappleDuration;
     }
 
     public override void UpdateState(PlayerStateManager Player)
     {
-
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            Player.SwitchState(Player.groundedState);
+        }
     }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
@@ -18,7 +23,10 @@ public class PlayerGrappleState : PlayerBaseState
     }
     public override void Dodge(PlayerStateManager Player)
     {
-
+        if (timer < Player.PlayerVars.GrappleStartupEnd)
+        {
+            Player.SwitchState(Player.dodgeState);
+        }
     }
 
     public override void Interact(PlayerStateManager Player)
@@ -51,6 +59,9 @@ public class PlayerGrappleState : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
-
+        if (timer < Player.PlayerVars.GrappleStartupEnd)
+        {
+            Player.SwitchState(Player.groundedState);
+        }
     }
 }

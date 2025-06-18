@@ -1,0 +1,17 @@
+using UnityEngine;
+[CreateAssetMenu(fileName = "PlayerVariableContainer", menuName = "PlayerVarialeContainer")]
+public class PlayerVariableContainer : ScriptableObject
+{
+    public Rigidbody Rigidbody;
+    public Transform PlayerTransform;
+
+    public float PunchDuration;
+    public float PunchStartupEnd;
+
+    public float DodgeDuration;
+
+    public float GrappleDuration;
+    public float GrappleStartupEnd;
+
+    public float JumpStrength;
+}

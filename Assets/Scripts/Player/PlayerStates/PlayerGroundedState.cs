@@ -28,7 +28,7 @@ public class PlayerGroundedState : PlayerBaseState
 
     public override void Jump(PlayerStateManager Player)
     {
-
+        Player.SwitchState(Player.airborneState);
     }
 
     public override void LeftPunch(PlayerStateManager Player)
