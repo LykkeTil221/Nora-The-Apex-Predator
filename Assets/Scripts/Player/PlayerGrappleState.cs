@@ -13,7 +13,7 @@ public class PlayerGrappleState : PlayerBaseState
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            Player.SwitchState(Player.groundedState);
+            Player.SwitchToNeutralState();
         }
     }
 

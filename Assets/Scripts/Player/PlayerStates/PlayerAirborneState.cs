@@ -39,7 +39,7 @@ public class PlayerAirborneState : PlayerBaseState
 
     public override void LeftPunch(PlayerStateManager Player)
     {
-
+        Player.SwitchState(Player.airAttackState);
     }
 
     public override void LeftSpecial(PlayerStateManager Player)
@@ -51,7 +51,7 @@ public class PlayerAirborneState : PlayerBaseState
 
     public override void RightPunch(PlayerStateManager Player)
     {
-
+        Player.SwitchState(Player.airAttackState);
     }
 
     public override void RightSpecial(PlayerStateManager Player)

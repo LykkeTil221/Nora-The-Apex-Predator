@@ -9,7 +9,11 @@ public class PlayerGroundedState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager Player)
     {
-
+        if (!Player.IsGrounded)
+        {
+            Debug.Log("Player is Airborne");
+            Player.SwitchState(Player.airborneState);
+        }
     }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
@@ -28,6 +32,7 @@ public class PlayerGroundedState : PlayerBaseState
 
     public override void Jump(PlayerStateManager Player)
     {
+        Debug.Log("Player Jumped");
         Player.Rigidbody.AddForce(Vector3.up * Player.PlayerVars.JumpStrength,ForceMode.Impulse);
         Player.SwitchState(Player.airborneState);
     }

@@ -4,8 +4,6 @@ public class PlayerAttackState : PlayerBaseState
 {
     public bool wasLastInputLeft;
     private float timer;
-    private float PunchDuration = 1;
-    private float PunchStartupEnd;
     public override void EnterState(PlayerStateManager Player)
     {
         if (wasLastInputLeft)
@@ -26,7 +24,7 @@ public class PlayerAttackState : PlayerBaseState
         
         if(timer < 0)
         {
-            Player.SwitchState(Player.groundedState);
+            Player.SwitchToNeutralState();
         }
     }
 

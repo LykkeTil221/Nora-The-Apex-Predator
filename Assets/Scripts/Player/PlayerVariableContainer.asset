@@ -20,3 +20,7 @@ MonoBehaviour:
   GrappleDuration: 2
   GrappleStartupEnd: 0.5
   JumpStrength: 10
+  AirAttackJumpStrength: 5
+  AirAttackEndDuration: 0.5
+  AirAttackTimeBeforeSlamDown: 0.35
+  AirAttackDownSpeed: 10

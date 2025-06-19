@@ -14,4 +14,9 @@ public class PlayerVariableContainer : ScriptableObject
     public float GrappleStartupEnd;
 
     public float JumpStrength;
+
+    public float AirAttackJumpStrength;
+    public float AirAttackEndDuration;
+    public float AirAttackTimeBeforeSlamDown;
+    public float AirAttackDownSpeed;
 }

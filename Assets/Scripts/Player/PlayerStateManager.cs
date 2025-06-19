@@ -5,13 +5,15 @@ public class PlayerStateManager : MonoBehaviour
 {
     public PlayerVariableContainer PlayerVars;
 
+    public Vector3 MoveVector;
+
     PlayerBaseState currentState;
     public PlayerGroundedState groundedState = new PlayerGroundedState();
     public PlayerAirborneState airborneState = new PlayerAirborneState();
     public PlayerDodgeState dodgeState = new PlayerDodgeState();
     public PlayerAttackState attackState = new PlayerAttackState();
     public PlayerGrappleState grappleState = new PlayerGrappleState();
-
+    public PlayerAttackAirState airAttackState = new PlayerAttackAirState();
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
 
@@ -28,10 +30,27 @@ public class PlayerStateManager : MonoBehaviour
         currentState.UpdateState(this);
     }
 
+    public void MoveInput(InputAction.CallbackContext context)
+    {
+        MoveVector = context.ReadValue<Vector2>();
+    }
+
     public void SwitchState(PlayerBaseState state)
     {
         currentState = state;
         state.EnterState(this);
+    }
+
+    public void SwitchToNeutralState()
+    {
+        if (IsGrounded)
+        {
+            SwitchState(groundedState);
+        }
+        else
+        {
+            SwitchState(airborneState);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
