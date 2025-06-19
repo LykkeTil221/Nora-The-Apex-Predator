@@ -7,7 +7,13 @@ public class PlayerStateTemplate : PlayerBaseState
 
     }
 
+
     public override void UpdateState(PlayerStateManager Player)
+    {
+
+    }
+
+    public override void FixedUpdateState(PlayerStateManager Player)
     {
 
     }

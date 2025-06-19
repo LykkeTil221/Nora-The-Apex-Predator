@@ -21,6 +21,10 @@ public class PlayerDodgeState : PlayerBaseState
             Player.SwitchState(Player.groundedState);
         }
     }
+    public override void FixedUpdateState(PlayerStateManager Player)
+    {
+
+    }
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
     {
 

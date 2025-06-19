@@ -19,4 +19,11 @@ public class PlayerVariableContainer : ScriptableObject
     public float AirAttackEndDuration;
     public float AirAttackTimeBeforeSlamDown;
     public float AirAttackDownSpeed;
+
+    public float MoveSpeed;
+    public float MaxMoveSpeed;
+    public float RotateSpeed;
+
+    public float GroundDrag;
+    public float AirDrag;
 }

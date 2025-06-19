@@ -40,6 +40,10 @@ public class PlayerAttackAirState : PlayerBaseState
             }
         }
     }
+    public override void FixedUpdateState(PlayerStateManager Player)
+    {
+
+    }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
     {

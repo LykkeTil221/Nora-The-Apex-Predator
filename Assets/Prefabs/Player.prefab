@@ -172,8 +172,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2717489103806727396}
-        m_TargetAssemblyTypeName: PlayerInputScript, Assembly-CSharp
+      - m_Target: {fileID: 454843375835950733}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: MoveInput
         m_Mode: 0
         m_Arguments:
@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerVars: {fileID: 11400000, guid: 3ff332927d4bf094caa74b4b8c0f529a, type: 2}
+  MoveVector: {x: 0, y: 0, z: 0}
   Rigidbody: {fileID: 6834867973877977622}
   IsGrounded: 0
 --- !u!54 &6834867973877977622
@@ -435,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateManager: {fileID: 454843375835950733}
-  GCYPoint: {x: 0.5, y: -0.4, z: 0.5}
+  GCYPoint: {x: 0.5, y: -0.45, z: 0.5}
   GCPositionModifier: 0
   isGroundLayer:
     serializedVersion: 2

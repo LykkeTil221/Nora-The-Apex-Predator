@@ -17,6 +17,10 @@ public class PlayerStateManager : MonoBehaviour
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
 
+    public Camera PlayerCamera;
+    public Vector3 ForceDirection;
+    public Vector3 MoveDirection;
+
     private void Start()
     {
         PlayerVars.PlayerTransform = transform;
@@ -28,6 +32,16 @@ public class PlayerStateManager : MonoBehaviour
     private void Update()
     {
         currentState.UpdateState(this);
+
+        MoveDirection = GetCameraforward(PlayerCamera) * MoveVector.y + GetCameraRight(PlayerCamera) * MoveVector.x;
+
+        ForceDirection += MoveVector.x * GetCameraRight(PlayerCamera) * PlayerVars.MoveSpeed;
+        ForceDirection += MoveVector.y * GetCameraforward(PlayerCamera) * PlayerVars.MoveSpeed;
+    }
+
+    private void FixedUpdate()
+    {
+        currentState.FixedUpdateState(this);
     }
 
     public void MoveInput(InputAction.CallbackContext context)
@@ -105,5 +119,19 @@ public class PlayerStateManager : MonoBehaviour
         if (context.canceled) return;
         print("Cancel Input");
         currentState.Cancel(this);
+    }
+
+    private Vector3 GetCameraforward(Camera playerCamera)
+    {
+        Vector3 forward = playerCamera.transform.forward;
+        forward.y = 0;
+        return forward.normalized;
+    }
+
+    private Vector3 GetCameraRight(Camera playerCamera)
+    {
+        Vector3 right = playerCamera.transform.right;
+        right.y = 0;
+        return right.normalized;
     }
 }

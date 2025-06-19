@@ -64,4 +64,9 @@ public class PlayerGrappleState : PlayerBaseState
             Player.SwitchState(Player.groundedState);
         }
     }
+
+    public override void FixedUpdateState(PlayerStateManager Player)
+    {
+
+    }
 }

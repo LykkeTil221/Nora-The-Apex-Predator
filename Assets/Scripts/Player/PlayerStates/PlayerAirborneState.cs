@@ -2,20 +2,32 @@ using UnityEngine;
 
 public class PlayerAirborneState : PlayerBaseState
 {
-    
-
+    public bool didPlayerJump;
+    private float timer;
     public override void EnterState(PlayerStateManager Player)
     {
+        Player.Rigidbody.linearDamping = Player.PlayerVars.AirDrag;
         Debug.Log("Hello from the airborne State");
+        if (didPlayerJump)
+        {
+            Player.Rigidbody.AddForce(Vector3.up * Player.PlayerVars.JumpStrength, ForceMode.Impulse);
+            didPlayerJump = false;
+        }
+        
+        timer = 0;
     }
     public override void UpdateState(PlayerStateManager Player)
     {
-        
-        if (Player.IsGrounded)
+        timer += Time.deltaTime;
+        if(timer > 0.5f && Player.IsGrounded)
         {
             Debug.Log("player is grounded");
             Player.SwitchState(Player.groundedState);
         }
+    }
+    public override void FixedUpdateState(PlayerStateManager Player)
+    {
+
     }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
