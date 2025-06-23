@@ -55,8 +55,7 @@ public class PlayerGroundedState : PlayerBaseState
         
         if(Player.MoveVector.x == 0 && Player.MoveVector.y == 0)
         {
-            Debug.Log("Slowing down player");
-            Player.Rigidbody.linearVelocity = Player.Rigidbody.linearVelocity * 0.95f * Time.deltaTime;
+            Player.Rigidbody.linearVelocity = Player.Rigidbody.linearVelocity * Player.PlayerVars.SlowingDownSpeed * Time.deltaTime;
         }
         
     }

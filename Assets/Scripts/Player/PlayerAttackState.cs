@@ -15,6 +15,7 @@ public class PlayerAttackState : PlayerBaseState
             Debug.Log("Right Hook");
         }
         timer = Player.PlayerVars.PunchDuration;
+        Player.ChangePlayerMaterial(1);
     }
 
     public override void UpdateState(PlayerStateManager Player)
@@ -22,8 +23,20 @@ public class PlayerAttackState : PlayerBaseState
         timer -= Time.deltaTime;
 
         
-        if(timer < 0)
+        
+
+        if(timer < Player.PlayerVars.PunchActionEnd)
         {
+            Player.ChangePlayerMaterial(3);
+        }
+        else if(timer < Player.PlayerVars.PunchStartupEnd)
+        {
+            Player.ChangePlayerMaterial(2);
+        }
+
+        if (timer < 0)
+        {
+            Player.ChangePlayerMaterial(0);
             Player.SwitchToNeutralState();
         }
     }

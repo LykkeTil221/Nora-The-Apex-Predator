@@ -6,6 +6,7 @@ public class PlayerVariableContainer : ScriptableObject
     public Transform PlayerTransform;
 
     public float PunchDuration;
+    public float PunchActionEnd;
     public float PunchStartupEnd;
 
     public float DodgeDuration;
@@ -23,6 +24,7 @@ public class PlayerVariableContainer : ScriptableObject
     public float MoveSpeed;
     public float MaxMoveSpeed;
     public float RotateSpeed;
+    public float SlowingDownSpeed;
 
     public float GroundDrag;
     public float AirDrag;

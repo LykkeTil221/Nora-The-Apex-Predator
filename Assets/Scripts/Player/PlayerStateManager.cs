@@ -21,6 +21,11 @@ public class PlayerStateManager : MonoBehaviour
     public Vector3 ForceDirection;
     public Vector3 MoveDirection;
 
+    [SerializeField] private MeshRenderer playerRenderer;
+    [SerializeField] private Material regularMaterial;
+    [SerializeField] private Material startupMaterial;
+    [SerializeField] private Material actionMaterial;
+    [SerializeField] private Material endMaterial;
     private void Start()
     {
         PlayerVars.PlayerTransform = transform;
@@ -65,6 +70,27 @@ public class PlayerStateManager : MonoBehaviour
         {
             SwitchState(airborneState);
         }
+    }
+
+    public void ChangePlayerMaterial(int State)
+    {
+        if(State == 0)
+        {
+            playerRenderer.material = regularMaterial;
+        }
+        if (State == 1)
+        {
+            playerRenderer.material = startupMaterial;
+        }
+        if (State == 2)
+        {
+            playerRenderer.material = actionMaterial;
+        }
+        if (State == 3)
+        {
+            playerRenderer.material = endMaterial;
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)

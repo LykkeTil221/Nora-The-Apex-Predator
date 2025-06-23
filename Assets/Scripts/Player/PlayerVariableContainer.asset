@@ -14,18 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
   PlayerTransform: {fileID: 0}
-  PunchDuration: 1
-  PunchStartupEnd: 0.3
+  PunchDuration: 0.7
+  PunchActionEnd: 0.2
+  PunchStartupEnd: 0.6
   DodgeDuration: 0.5
   GrappleDuration: 2
   GrappleStartupEnd: 0.5
   JumpStrength: 100
-  AirAttackJumpStrength: 5
+  AirAttackJumpStrength: 25
   AirAttackEndDuration: 0.5
   AirAttackTimeBeforeSlamDown: 0.35
   AirAttackDownSpeed: 10
-  MoveSpeed: 100
-  MaxMoveSpeed: 100
+  MoveSpeed: 600
+  MaxMoveSpeed: 600
   RotateSpeed: 1000
-  GroundDrag: 0
+  SlowingDownSpeed: 0
+  GroundDrag: 30
   AirDrag: 0
