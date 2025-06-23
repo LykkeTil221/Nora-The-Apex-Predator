@@ -6,14 +6,27 @@ public class PlayerGrappleState : PlayerBaseState
     public override void EnterState(PlayerStateManager Player)
     {
         timer = Player.PlayerVars.GrappleDuration;
+        Player.ChangePlayerMaterial(1);
     }
 
     public override void UpdateState(PlayerStateManager Player)
     {
+        if (timer < Player.PlayerVars.GrappleActionEnd)
+        {
+            Player.ChangePlayerMaterial(3);
+           
+        }
+        else if (timer < Player.PlayerVars.GrappleStartupEnd)
+        {          
+            Player.ChangePlayerMaterial(2);
+
+        }
+
         timer -= Time.deltaTime;
         if (timer < 0)
         {
             Player.SwitchToNeutralState();
+            Player.ChangePlayerMaterial(0);
         }
     }
 
@@ -62,6 +75,7 @@ public class PlayerGrappleState : PlayerBaseState
         if (timer < Player.PlayerVars.GrappleStartupEnd)
         {
             Player.SwitchState(Player.groundedState);
+            Player.ChangePlayerMaterial(0);
         }
     }
 

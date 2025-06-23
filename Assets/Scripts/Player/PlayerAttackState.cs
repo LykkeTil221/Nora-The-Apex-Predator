@@ -6,6 +6,8 @@ public class PlayerAttackState : PlayerBaseState
     private float timer;
     public override void EnterState(PlayerStateManager Player)
     {
+        Player.LeftArmCollider.SetActive(false);
+        Player.RightArmCollider.SetActive(false);
         if (wasLastInputLeft)
         {
             Debug.Log("Left Hook");
@@ -22,16 +24,37 @@ public class PlayerAttackState : PlayerBaseState
     {
         timer -= Time.deltaTime;
 
-        
+        if(timer > Player.PlayerVars.PunchStartupEnd)
+        {
+            if (Player.MoveDirection != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(Player.MoveDirection, Vector3.up);
+
+                Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, toRotation, Player.PlayerVars.RotateSpeed * Time.deltaTime);
+            }
+        }
         
 
         if(timer < Player.PlayerVars.PunchActionEnd)
         {
             Player.ChangePlayerMaterial(3);
+            Player.LeftArmCollider.SetActive(false);
+            Player.RightArmCollider.SetActive(false);
+            Player.Rigidbody.linearVelocity = Vector3.zero;
         }
         else if(timer < Player.PlayerVars.PunchStartupEnd)
         {
+            if (wasLastInputLeft)
+            {
+                Player.LeftArmCollider.SetActive(true);
+            }
+            else
+            {
+                Player.RightArmCollider.SetActive(true);
+            }
             Player.ChangePlayerMaterial(2);
+
+            Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.AttackForwardSpeed,ForceMode.Impulse);
         }
 
         if (timer < 0)
@@ -107,6 +130,7 @@ public class PlayerAttackState : PlayerBaseState
         if(timer > Player.PlayerVars.PunchStartupEnd)
         {
             Player.SwitchState(Player.groundedState);
+            Player.ChangePlayerMaterial(0);
         }
     }
 }

@@ -11,6 +11,7 @@ public class PlayerAttackAirState : PlayerBaseState
         Player.Rigidbody.linearVelocity = new Vector3(Player.Rigidbody.linearVelocity.x, 0, Player.Rigidbody.linearVelocity.z);
         Player.Rigidbody.AddForce(Vector3.up * Player.PlayerVars.AirAttackJumpStrength, ForceMode.Impulse);
         timer = 0;
+        Player.ChangePlayerMaterial(1);
     }
 
     public override void UpdateState(PlayerStateManager Player)
@@ -21,6 +22,7 @@ public class PlayerAttackAirState : PlayerBaseState
             hasHitGround=true;
             
             timer = Player.PlayerVars.AirAttackEndDuration;
+            Player.ChangePlayerMaterial(2);
         }
 
         if (hasHitGround)

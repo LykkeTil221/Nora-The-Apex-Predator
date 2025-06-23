@@ -53,6 +53,7 @@ public class PlayerGroundedState : PlayerBaseState
             Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, toRotation, Player.PlayerVars.RotateSpeed * Time.deltaTime);
         }
         
+        //Slowing down
         if(Player.MoveVector.x == 0 && Player.MoveVector.y == 0)
         {
             Player.Rigidbody.linearVelocity = Player.Rigidbody.linearVelocity * Player.PlayerVars.SlowingDownSpeed * Time.deltaTime;

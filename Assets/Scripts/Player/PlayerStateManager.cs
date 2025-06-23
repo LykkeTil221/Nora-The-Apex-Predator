@@ -26,6 +26,9 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] private Material startupMaterial;
     [SerializeField] private Material actionMaterial;
     [SerializeField] private Material endMaterial;
+
+    public GameObject LeftArmCollider;
+    public GameObject RightArmCollider;
     private void Start()
     {
         PlayerVars.PlayerTransform = transform;
