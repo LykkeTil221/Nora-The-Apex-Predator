@@ -8,6 +8,7 @@ public class PlayerVariableContainer : ScriptableObject
     public float PunchDuration;
     public float PunchActionEnd;
     public float PunchStartupEnd;
+    public int PunchDamage;
 
     public float DodgeLungeForce;
     public float DodgeActionEnd;
@@ -23,6 +24,7 @@ public class PlayerVariableContainer : ScriptableObject
     public float AirAttackEndDuration;
     public float AirAttackTimeBeforeSlamDown;
     public float AirAttackDownSpeed;
+    public int AirAttackDamage;
 
     public float MoveSpeed;
     public float MaxMoveSpeed;

@@ -19,8 +19,8 @@ TagManager:
   - PlayerHurtBox
   - EnemyHitBox
   - EnemyHurtBox
-  - 
-  - 
+  - GlobalHitBox
+  - GlobalHurtBox
   - 
   - 
   - 
