@@ -4,8 +4,11 @@ public class PlayerAttackState : PlayerBaseState
 {
     public bool wasLastInputLeft;
     private float timer;
+    private int currentCombo;
+    private bool doOtherPunch;
     public override void EnterState(PlayerStateManager Player)
     {
+        currentCombo += 1;
         Player.LeftArmCollider.SetActive(false);
         Player.RightArmCollider.SetActive(false);
         if (wasLastInputLeft)
@@ -18,6 +21,7 @@ public class PlayerAttackState : PlayerBaseState
         }
         timer = Player.PlayerVars.PunchDuration;
         Player.ChangePlayerMaterial(1);
+        Debug.Log(currentCombo);
     }
 
     public override void UpdateState(PlayerStateManager Player)
@@ -32,6 +36,21 @@ public class PlayerAttackState : PlayerBaseState
 
                 Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, toRotation, Player.PlayerVars.RotateSpeed * Time.deltaTime);
             }
+        }
+
+        if(doOtherPunch && timer < Player.PlayerVars.PunchActionEnd)
+        {
+            if (!wasLastInputLeft)
+            {
+                Player.SwitchState(Player.attackState);
+                Player.attackState.wasLastInputLeft = true;
+            }
+            else
+            {
+                Player.SwitchState(Player.attackState);
+                Player.attackState.wasLastInputLeft = false;
+            }
+            doOtherPunch = false;
         }
         
 
@@ -56,11 +75,17 @@ public class PlayerAttackState : PlayerBaseState
 
             Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.AttackForwardSpeed,ForceMode.Impulse);
         }
+        if (timer < Player.PlayerVars.PunchActionEnd && !Player.IsGrounded)
+        {
+            Player.SwitchToNeutralState();
+            Player.ChangePlayerMaterial(0);
+        }
 
         if (timer < 0)
         {
             Player.ChangePlayerMaterial(0);
             Player.SwitchToNeutralState();
+            currentCombo = 0;
         }
     }
 
@@ -78,6 +103,7 @@ public class PlayerAttackState : PlayerBaseState
         if (timer > Player.PlayerVars.PunchStartupEnd)
         {
             Player.SwitchState(Player.dodgeState);
+            currentCombo = 0;
         }
     }
 
@@ -95,10 +121,9 @@ public class PlayerAttackState : PlayerBaseState
     {
         if (!wasLastInputLeft && timer < Player.PlayerVars.PunchStartupEnd)
         {
-            Player.SwitchState(Player.attackState);
-            Player.attackState.wasLastInputLeft = true;
+            doOtherPunch = true;
         }
-        else if(!wasLastInputLeft)
+        else if(!wasLastInputLeft && timer > Player.PlayerVars.PunchStartupEnd)
         {
             Player.SwitchState(Player.grappleState);
         }
@@ -112,10 +137,9 @@ public class PlayerAttackState : PlayerBaseState
     {
         if (wasLastInputLeft && timer < Player.PlayerVars.PunchStartupEnd)
         {
-            Player.SwitchState(Player.attackState);
-            Player.attackState.wasLastInputLeft = false;
+            doOtherPunch = true;
         }
-        else if(wasLastInputLeft)
+        else if(wasLastInputLeft && timer > Player.PlayerVars.PunchStartupEnd)
         {
             Player.SwitchState(Player.grappleState);
         }
@@ -131,6 +155,7 @@ public class PlayerAttackState : PlayerBaseState
         {
             Player.SwitchState(Player.groundedState);
             Player.ChangePlayerMaterial(0);
+            currentCombo = 0;
         }
     }
 }

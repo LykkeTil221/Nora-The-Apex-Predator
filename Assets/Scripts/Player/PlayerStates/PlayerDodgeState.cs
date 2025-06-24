@@ -3,14 +3,22 @@ using UnityEngine;
 public class PlayerDodgeState : PlayerBaseState
 {
     private float timer;
-    private float DodgeDuration = 1;
 
     
 
     public override void EnterState(PlayerStateManager Player)
     {
         Debug.Log("Hello from the dodge state!");
-        timer = DodgeDuration;
+        timer = Player.PlayerVars.DodgeDuration;
+
+        if (Player.MoveDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Player.MoveDirection, Vector3.up);
+
+            Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, toRotation, 10000 * Time.deltaTime);
+        }
+
+        Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.DodgeLungeForce,ForceMode.Impulse);
     }
 
     public override void UpdateState(PlayerStateManager Player)
@@ -20,10 +28,19 @@ public class PlayerDodgeState : PlayerBaseState
         {
             Player.SwitchState(Player.groundedState);
         }
+        if(timer < Player.PlayerVars.DodgeActionEnd && !Player.IsGrounded)
+        {
+            Player.SwitchToNeutralState();
+        }
+
+
     }
     public override void FixedUpdateState(PlayerStateManager Player)
     {
+        if(timer > Player.PlayerVars.DodgeActionEnd)
+        {
 
+        }
     }
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
     {

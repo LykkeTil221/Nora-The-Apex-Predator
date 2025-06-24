@@ -9,6 +9,8 @@ public class PlayerVariableContainer : ScriptableObject
     public float PunchActionEnd;
     public float PunchStartupEnd;
 
+    public float DodgeLungeForce;
+    public float DodgeActionEnd;
     public float DodgeDuration;
 
     public float GrappleDuration;

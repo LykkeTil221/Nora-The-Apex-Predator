@@ -19,7 +19,7 @@ public class PlayerAirborneState : PlayerBaseState
     public override void UpdateState(PlayerStateManager Player)
     {
         timer += Time.deltaTime;
-        if(timer > 0.5f && Player.IsGrounded)
+        if(timer > 0.1f && Player.IsGrounded)
         {
             Debug.Log("player is grounded");
             Player.SwitchState(Player.groundedState);

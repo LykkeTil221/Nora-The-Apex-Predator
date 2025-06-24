@@ -29,6 +29,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public GameObject LeftArmCollider;
     public GameObject RightArmCollider;
+    public GameObject AirAttackCollider;
     private void Start()
     {
         PlayerVars.PlayerTransform = transform;

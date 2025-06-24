@@ -23,6 +23,8 @@ public class PlayerAttackAirState : PlayerBaseState
             
             timer = Player.PlayerVars.AirAttackEndDuration;
             Player.ChangePlayerMaterial(2);
+            Player.Rigidbody.linearVelocity = Vector3.zero;
+            Player.AirAttackCollider.SetActive(true);
         }
 
         if (hasHitGround)
@@ -30,7 +32,9 @@ public class PlayerAttackAirState : PlayerBaseState
             timer -= Time.deltaTime;
             if(timer < 0)
             {
+                Player.AirAttackCollider.SetActive(false);
                 Player.SwitchToNeutralState();
+                Player.ChangePlayerMaterial(0);
             }
         }
         else
