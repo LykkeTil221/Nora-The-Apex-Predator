@@ -1297,20 +1297,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1229122754217447938, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5892934531336131943, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7261580458337181852, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
-      propertyPath: maxDistanceForGroundCheck
-      value: 0.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1229122754217447938, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
