@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8da96fedf0495704aa9fb14c862a0133, type: 3}
-  m_Name: PlayerAttackVariables
+  m_Name: AttackVariables
   m_EditorClassIdentifier: 
   Attack:
     keys:
     - Punch
-    - AirSlam
+    - Slam
     values: 0300000006000000

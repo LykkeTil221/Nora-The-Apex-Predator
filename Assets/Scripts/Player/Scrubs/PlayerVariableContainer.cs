@@ -5,6 +5,9 @@ public class PlayerVariableContainer : ScriptableObject
     public Rigidbody Rigidbody;
     public Transform PlayerTransform;
 
+    public int PlayerHealth;
+    public float PlayerEnergy;
+
     public float PunchDuration;
     public float PunchActionEnd;
     public float PunchStartupEnd;

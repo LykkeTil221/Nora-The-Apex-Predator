@@ -30,6 +30,8 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject LeftArmCollider;
     public GameObject RightArmCollider;
     public GameObject AirAttackCollider;
+
+    public int CurrentPlayerHealth;
     private void Start()
     {
         PlayerVars.PlayerTransform = transform;
@@ -37,6 +39,8 @@ public class PlayerStateManager : MonoBehaviour
         currentState = groundedState;
 
         currentState.EnterState(this);
+
+        CurrentPlayerHealth = PlayerVars.PlayerHealth;
     }
     private void Update()
     {

@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
   PlayerTransform: {fileID: 0}
+  PlayerHealth: 12
+  PlayerEnergy: 0
   PunchDuration: 0.55
   PunchActionEnd: 0.3
   PunchStartupEnd: 0.4
+  PunchDamage: 0
   DodgeLungeForce: 550
   DodgeActionEnd: 0.3
   DodgeDuration: 0.5
@@ -28,6 +31,7 @@ MonoBehaviour:
   AirAttackEndDuration: 0.5
   AirAttackTimeBeforeSlamDown: 0.35
   AirAttackDownSpeed: 100
+  AirAttackDamage: 0
   MoveSpeed: 125
   MaxMoveSpeed: 125
   RotateSpeed: 1000
