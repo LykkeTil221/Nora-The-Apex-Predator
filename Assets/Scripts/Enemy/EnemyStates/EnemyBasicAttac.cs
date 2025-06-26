@@ -21,4 +21,9 @@ public class EnemyBasicAttac : EnemyBaseState
     {
 
     }
+
+    public override void Stun(EnemyStateManager Enemy)
+    {
+
+    }
 }

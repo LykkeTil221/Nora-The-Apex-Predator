@@ -12,6 +12,7 @@ public class EnemyPlayerDetector : MonoBehaviour
             {
                 enemyStateManager.PlayerIsDetected = true;
                 timer = enemyStateManager.EnemyStats.attentionSpan;
+                enemyStateManager.SwitchState(enemyStateManager.DetectState);
             }    
         }
         else

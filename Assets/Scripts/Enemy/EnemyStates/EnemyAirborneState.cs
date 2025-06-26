@@ -24,4 +24,9 @@ public class EnemyAirborneState : EnemyBaseState
     {
 
     }
+
+    public override void Stun(EnemyStateManager Enemy)
+    {
+
+    }
 }

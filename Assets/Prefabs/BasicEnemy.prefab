@@ -113,6 +113,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 8671263288481654802}
   EnemyStats: {fileID: 11400000, guid: 9f36305049fb76647b87e46358d51e40, type: 2}
   PlayerIsDetected: 0
+  ExplamationMark: {fileID: 2318947566768535112}
 --- !u!114 &506111301553445565
 MonoBehaviour:
   m_ObjectHideFlags: 0

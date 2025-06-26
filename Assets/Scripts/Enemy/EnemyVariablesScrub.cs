@@ -5,6 +5,7 @@ public class EnemyVariablesScrub : ScriptableObject
     [Header("Movement Variables")]
     public float MoveSpeed;
     public float RotateSpeed;
+    public float DetectRotateSpeed;
     [Header("Drag")]
     public float GroundDrag;
     public float AirDrag;

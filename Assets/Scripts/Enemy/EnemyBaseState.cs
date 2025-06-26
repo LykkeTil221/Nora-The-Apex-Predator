@@ -6,4 +6,5 @@ public abstract class EnemyBaseState
     public abstract void Update(EnemyStateManager Enemy);
     public abstract void FixedUpdate(EnemyStateManager Enemy);
     public abstract void OnCollission(EnemyStateManager Enemy);
+    public abstract void Stun(EnemyStateManager Enemy);
 }

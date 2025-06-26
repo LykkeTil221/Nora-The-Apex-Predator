@@ -7,12 +7,15 @@ public class EnemyStateManager : MonoBehaviour
 
     public EnemyGroundedState GroundedState = new EnemyGroundedState();
     public EnemyAirborneState AirborneState = new EnemyAirborneState();
+    public EnemyDetectPlayerState DetectState = new EnemyDetectPlayerState();
 
     public Rigidbody Rigidbody;
     public EnemyVariablesScrub EnemyStats;
 
     public bool PlayerIsDetected;
     //public PlayerGroundedState groundedState = new PlayerGroundedState();
+
+    public GameObject ExplamationMark;
     private void Start()
     {
         currentState = GroundedState;
@@ -38,5 +41,17 @@ public class EnemyStateManager : MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
+    }
+
+    public void SwitchToNeutralState()
+    {
+        if (IsGrounded)
+        {
+            SwitchState(GroundedState);
+        }
+        else
+        {
+            SwitchState(AirborneState);
+        }
     }
 }

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 500
   RotateSpeed: 5
+  DetectRotateSpeed: 30
   GroundDrag: 30
   AirDrag: 0
   playerObject: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
   SweetSpotRange: {x: 0, y: 3, z: 10}
+  attentionSpan: 5

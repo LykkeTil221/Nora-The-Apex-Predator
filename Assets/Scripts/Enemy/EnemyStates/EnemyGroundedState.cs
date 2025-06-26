@@ -41,4 +41,8 @@ public class EnemyGroundedState : EnemyBaseState
         Vector3 directionToPlayer = (Enemy.EnemyStats.playerObject.GameObject.transform.position - Enemy.transform.position).normalized;
         Enemy.transform.rotation = Quaternion.Euler(0f, Quaternion.Slerp(Enemy.transform.rotation, Quaternion.LookRotation(directionToPlayer), Enemy.EnemyStats.RotateSpeed * Time.deltaTime).eulerAngles.y, 0f);
     }
+    public override void Stun(EnemyStateManager Enemy)
+    {
+
+    }
 }
