@@ -32,9 +32,11 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject AirAttackCollider;
 
     public int CurrentPlayerHealth;
+
+    [SerializeField] GameObjectScrub PlayerReference;
     private void Start()
     {
-        PlayerVars.PlayerTransform = transform;
+        PlayerReference.GameObject = gameObject;
         print("GroundedState");
         currentState = groundedState;
 

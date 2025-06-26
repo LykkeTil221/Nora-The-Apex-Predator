@@ -16,4 +16,9 @@ public class EnemyBasicAttac : EnemyBaseState
     {
 
     }
+
+    public override void FixedUpdate(EnemyStateManager Enemy)
+    {
+
+    }
 }

@@ -1,9 +1,8 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "PlayerVariableContainer", menuName = "PlayerVarialeContainer")]
+[CreateAssetMenu(fileName = "PlayerStats", menuName = "Stats/PlayerStats")]
 public class PlayerVariableContainer : ScriptableObject
 {
     public Rigidbody Rigidbody;
-    public Transform PlayerTransform;
 
     public int PlayerHealth;
     public float PlayerEnergy;
