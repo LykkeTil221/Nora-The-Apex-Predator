@@ -3,5 +3,5 @@ using SnuggleMoth.Library.Core.Wrappers;
 [CreateAssetMenu(fileName = "PlayerAttackVariables", menuName = "PlayerAttackVariables")]
 public class PlayerAttackVariables : ScriptableObject
 {
-    public SerializedDictionary<string, int> Attack;
+    public SerializedDictionary<string, Vector2> Attack;
 }

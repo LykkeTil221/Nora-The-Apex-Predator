@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHurtBox : MonoBehaviour
 {
     [SerializeField] private PlayerStateManager playerManager;
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         Debug.Log("Player took " + damage + " damage");
         playerManager.CurrentPlayerHealth -= damage;

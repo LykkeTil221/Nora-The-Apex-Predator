@@ -9,12 +9,7 @@ public class HitBox : MonoBehaviour
         Debug.Log("Triggered");
         if (other.GetComponent<HurtBox>())
         {
-            other.GetComponent<HurtBox>().TakeDamage(attackVariable.Attack[attackName]);
-        }
-        else if (other.GetComponent<PlayerHurtBox>())
-        {
-            other.GetComponent<PlayerHurtBox>().TakeDamage(attackVariable.Attack[attackName]);
-        }
-        
+            other.GetComponent<HurtBox>().TakeDamageFuncion(attackVariable.Attack[attackName].x, attackVariable.Attack[attackName].y);
+        }        
     }
 }

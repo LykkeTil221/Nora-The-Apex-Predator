@@ -73,7 +73,7 @@ public class PlayerAttackState : PlayerBaseState
             }
             Player.ChangePlayerMaterial(2);
 
-            Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.AttackForwardSpeed,ForceMode.Impulse);
+            Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.PunchForwardSpeed,ForceMode.Impulse);
         }
         if (timer < Player.PlayerVars.PunchActionEnd && !Player.IsGrounded)
         {

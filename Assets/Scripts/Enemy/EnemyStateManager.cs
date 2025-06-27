@@ -13,6 +13,8 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyVariablesScrub EnemyStats;
 
     public bool PlayerIsDetected;
+
+    public float currentHealth;
     //public PlayerGroundedState groundedState = new PlayerGroundedState();
 
     public GameObject ExplamationMark;
@@ -20,6 +22,8 @@ public class EnemyStateManager : MonoBehaviour
     {
         currentState = GroundedState;
         currentState.EnterState(this);
+
+        currentHealth = EnemyStats.Health;
     }
 
     private void Update()

@@ -1,15 +1,11 @@
 using UnityEngine;
-
+using UnityEngine.Events;
 public class HurtBox : MonoBehaviour
 {
-    [SerializeField] private int Health = 4;
-    public void TakeDamage(int damage)
+    public UnityEvent<float, float> TakeDamage;
+    public void TakeDamageFuncion(float damage, float stun)
     {
         Debug.Log("Took " + damage + " damage");
-        Health -= damage;
-        if(Health <= 0)
-        {
-            Destroy(transform.parent.gameObject);
-        }
+        TakeDamage.Invoke(damage, stun);
     }
 }

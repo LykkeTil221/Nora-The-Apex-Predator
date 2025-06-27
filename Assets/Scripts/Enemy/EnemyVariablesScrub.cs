@@ -2,6 +2,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyStats", menuName = "Stats/EnemyStats")]
 public class EnemyVariablesScrub : ScriptableObject
 {
+    [Header("Enemy Stats")]
+    public float Health;
+    public float Unstoppable;
     [Header("Movement Variables")]
     public float MoveSpeed;
     public float RotateSpeed;

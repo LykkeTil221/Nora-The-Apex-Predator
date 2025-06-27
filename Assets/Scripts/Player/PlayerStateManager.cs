@@ -31,7 +31,7 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject RightArmCollider;
     public GameObject AirAttackCollider;
 
-    public int CurrentPlayerHealth;
+    public float CurrentPlayerHealth;
 
     [SerializeField] GameObjectScrub PlayerReference;
     private void Start()
