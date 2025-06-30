@@ -1617,6 +1617,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: "L\xE5s"
       objectReference: {fileID: 0}
+    - target: {fileID: 7998438899357568932, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: Discriminates
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998438899357568932, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: 'AcceptableAttacks.Array.data[0]'
+      value: Slam
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

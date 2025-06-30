@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerDamageManager : MonoBehaviour
 {
     [SerializeField] private PlayerStateManager Player;
-    public void TakeDamage(float damage, float stun)
+    public void TakeDamage(float damage, float stun, string attackID)
     {
         Debug.Log("Player took" + damage + "damage with" + stun + "stun");
         Player.CurrentPlayerHealth -= damage;
