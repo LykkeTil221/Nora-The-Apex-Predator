@@ -8,11 +8,12 @@ public class PlayerVariableContainer : ScriptableObject
     public float PlayerHealth;
     public float PlayerEnergy;
     public float Unstoppable;
+    public float stunDuration;
+    public float IFrames;
     [Header("Punch variables")]
     public float PunchDuration;
     public float PunchActionEnd;
     public float PunchStartupEnd;
-    public int PunchDamage;
     public float PunchForwardSpeed;
     [Header("Dodge variables")]
     public float DodgeLungeForce;
@@ -29,7 +30,6 @@ public class PlayerVariableContainer : ScriptableObject
     public float AirAttackEndDuration;
     public float AirAttackTimeBeforeSlamDown;
     public float AirAttackDownSpeed;
-    public int AirAttackDamage;
     [Header("Move variables")]
     public float MoveSpeed;
     public float MaxMoveSpeed;
@@ -38,6 +38,8 @@ public class PlayerVariableContainer : ScriptableObject
     [Header("Drag variables")]
     public float GroundDrag;
     public float AirDrag;
+    [Header("Additional state based Unstoppable Values")]
+    public float DodgeUnstoppable;
 
     
 }

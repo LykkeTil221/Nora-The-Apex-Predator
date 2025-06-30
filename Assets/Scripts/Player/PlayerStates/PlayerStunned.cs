@@ -1,51 +1,34 @@
 using UnityEngine;
 
-public class PlayerAttackAirState : PlayerBaseState
+public class PlayerStunned : PlayerBaseState
 {
     private float timer;
-    private bool hasHitGround;
+
     public override void EnterState(PlayerStateManager Player)
     {
-        Debug.Log("Hello from the air attack state");
-        hasHitGround = false;
-        Player.Rigidbody.linearVelocity = new Vector3(Player.Rigidbody.linearVelocity.x, 0, Player.Rigidbody.linearVelocity.z);
-        Player.Rigidbody.AddForce(Vector3.up * Player.PlayerVars.AirAttackJumpStrength, ForceMode.Impulse);
-        timer = 0;
-        Player.ChangePlayerMaterial(1);
+        timer = Player.PlayerVars.stunDuration;
+        Player.ChangePlayerMaterial(4);
     }
+
 
     public override void UpdateState(PlayerStateManager Player)
     {
-        if (Player.IsGrounded && !hasHitGround)
-        {
-            Debug.Log("SLAM!!!");
-            hasHitGround=true;
-            
-            timer = Player.PlayerVars.AirAttackEndDuration;
-            Player.ChangePlayerMaterial(2);
-            Player.Rigidbody.linearVelocity = Vector3.zero;
-            Player.AirAttackCollider.SetActive(true);
-        }
-
-        if (hasHitGround)
+        if (Player.IsGrounded)
         {
             timer -= Time.deltaTime;
             if(timer < 0)
             {
-                Player.AirAttackCollider.SetActive(false);
                 Player.SwitchToNeutralState();
                 Player.ChangePlayerMaterial(0);
             }
+            Player.Rigidbody.linearDamping = Player.PlayerVars.GroundDrag;
         }
         else
         {
-            timer += Time.deltaTime;
-            if(timer > Player.PlayerVars.AirAttackTimeBeforeSlamDown)
-            {
-                Player.Rigidbody.AddForce(Vector3.down * Player.PlayerVars.AirAttackDownSpeed, ForceMode.Force);
-            }
+            Player.Rigidbody.linearDamping = Player.PlayerVars.AirDrag;
         }
     }
+
     public override void FixedUpdateState(PlayerStateManager Player)
     {
 
@@ -90,6 +73,6 @@ public class PlayerAttackAirState : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
-        Player.AirAttackCollider.SetActive(false);
+
     }
 }

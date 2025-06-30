@@ -14,6 +14,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerAttackState attackState = new PlayerAttackState();
     public PlayerGrappleState grappleState = new PlayerGrappleState();
     public PlayerAttackAirState airAttackState = new PlayerAttackAirState();
+    public PlayerStunned stunState = new PlayerStunned();
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
 
@@ -26,12 +27,14 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] private Material startupMaterial;
     [SerializeField] private Material actionMaterial;
     [SerializeField] private Material endMaterial;
+    [SerializeField] private Material stunMaterial;
 
     public GameObject LeftArmCollider;
     public GameObject RightArmCollider;
     public GameObject AirAttackCollider;
 
     public float CurrentPlayerHealth;
+    public float CurrentPlayerUnstoppable;
 
     [SerializeField] GameObjectScrub PlayerReference;
     private void Start()
@@ -43,6 +46,7 @@ public class PlayerStateManager : MonoBehaviour
         currentState.EnterState(this);
 
         CurrentPlayerHealth = PlayerVars.PlayerHealth;
+        CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
     }
     private void Update()
     {
@@ -99,6 +103,10 @@ public class PlayerStateManager : MonoBehaviour
         if (State == 3)
         {
             playerRenderer.material = endMaterial;
+        }
+        if(State == 4)
+        {
+            playerRenderer.material = stunMaterial;
         }
 
     }
@@ -169,5 +177,15 @@ public class PlayerStateManager : MonoBehaviour
         Vector3 right = playerCamera.transform.right;
         right.y = 0;
         return right.normalized;
+    }
+
+    public void GrabHitEnemy(EnemyStateManager Enemy)
+    {
+
+    }
+    public void PlayerStunned()
+    {
+        currentState.Cancel(this);
+        SwitchState(stunState);
     }
 }

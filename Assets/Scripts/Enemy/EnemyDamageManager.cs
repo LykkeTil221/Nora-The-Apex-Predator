@@ -8,7 +8,7 @@ public class EnemyDamageManager : MonoBehaviour
         Enemy.currentHealth -= damage;
         if(stun > Enemy.EnemyStats.Unstoppable)
         {
-            //Enemy is stunned.
+            Enemy.Stunned();
         }
         if(Enemy.currentHealth <= 0)
         {

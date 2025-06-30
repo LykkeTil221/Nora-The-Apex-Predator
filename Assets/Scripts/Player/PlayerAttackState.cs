@@ -156,6 +156,8 @@ public class PlayerAttackState : PlayerBaseState
             Player.SwitchState(Player.groundedState);
             Player.ChangePlayerMaterial(0);
             currentCombo = 0;
+            Player.LeftArmCollider.SetActive(false);
+            Player.RightArmCollider.SetActive(false);
         }
     }
 }

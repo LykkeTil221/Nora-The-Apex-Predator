@@ -8,6 +8,7 @@ public class PlayerDodgeState : PlayerBaseState
 
     public override void EnterState(PlayerStateManager Player)
     {
+        Player.CurrentPlayerUnstoppable += Player.PlayerVars.DodgeUnstoppable;
         Debug.Log("Hello from the dodge state!");
         timer = Player.PlayerVars.DodgeDuration;
 
@@ -27,10 +28,12 @@ public class PlayerDodgeState : PlayerBaseState
         if (timer <= 0)
         {
             Player.SwitchState(Player.groundedState);
+            Player.CurrentPlayerUnstoppable -= Player.PlayerVars.DodgeUnstoppable;
         }
         if(timer < Player.PlayerVars.DodgeActionEnd && !Player.IsGrounded)
         {
             Player.SwitchToNeutralState();
+            Player.CurrentPlayerUnstoppable -= Player.PlayerVars.DodgeUnstoppable;
         }
 
 
@@ -86,6 +89,6 @@ public class PlayerDodgeState : PlayerBaseState
 
     public override void Cancel(PlayerStateManager Player)
     {
-
+        Player.CurrentPlayerUnstoppable -= Player.PlayerVars.DodgeUnstoppable;
     }
 }

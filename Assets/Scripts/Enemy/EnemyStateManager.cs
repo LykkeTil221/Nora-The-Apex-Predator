@@ -8,6 +8,7 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyGroundedState GroundedState = new EnemyGroundedState();
     public EnemyAirborneState AirborneState = new EnemyAirborneState();
     public EnemyDetectPlayerState DetectState = new EnemyDetectPlayerState();
+    public EnemyStunnedState StunnedState = new EnemyStunnedState();
 
     public Rigidbody Rigidbody;
     public EnemyVariablesScrub EnemyStats;
@@ -45,6 +46,11 @@ public class EnemyStateManager : MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
+    }
+
+    public void Stunned()
+    {
+        SwitchState(StunnedState);
     }
 
     public void SwitchToNeutralState()
