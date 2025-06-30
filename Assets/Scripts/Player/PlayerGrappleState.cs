@@ -3,14 +3,18 @@ using UnityEngine;
 public class PlayerGrappleState : PlayerBaseState
 {
     private float timer;
+    private bool hasGrabbedEnemy;
     public override void EnterState(PlayerStateManager Player)
     {
         timer = Player.PlayerVars.GrappleDuration;
         Player.ChangePlayerMaterial(1);
+        Player.GrappleCollider.SetActive(true);
+        Player.GrappleCollider.transform.position = Player.transform.position;
     }
 
     public override void UpdateState(PlayerStateManager Player)
     {
+        if (hasGrabbedEnemy) return;
         if (timer < Player.PlayerVars.GrappleActionEnd)
         {
             Player.ChangePlayerMaterial(3);
@@ -20,6 +24,11 @@ public class PlayerGrappleState : PlayerBaseState
         {          
             Player.ChangePlayerMaterial(2);
 
+        }
+
+        if(timer < Player.PlayerVars.GrappleIdleEnd)
+        {
+            Player.GrappleCollider.transform.position += Vector3.forward * 10;
         }
 
         timer -= Time.deltaTime;
@@ -82,5 +91,10 @@ public class PlayerGrappleState : PlayerBaseState
     public override void FixedUpdateState(PlayerStateManager Player)
     {
 
+    }
+
+    public void EnemyIsGrabbed(EnemyStateManager GrabbedEnemy)
+    {
+        hasGrabbedEnemy = true;
     }
 }

@@ -19,10 +19,13 @@ public class PlayerVariableContainer : ScriptableObject
     public float DodgeLungeForce;
     public float DodgeActionEnd;
     public float DodgeDuration;
+    public float EnergyCost;
     [Header("Grapple variables")]
     public float GrappleDuration;
     public float GrappleStartupEnd;
     public float GrappleActionEnd;
+    public float GrappleIdleEnd;
+    public float GrappleReturnEnd;
     [Header("Jump variables")]
     public float JumpStrength;
     [Header("Air attack variables")]

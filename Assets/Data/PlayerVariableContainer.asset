@@ -25,9 +25,11 @@ MonoBehaviour:
   DodgeLungeForce: 550
   DodgeActionEnd: 0.3
   DodgeDuration: 0.5
-  GrappleDuration: 2
-  GrappleStartupEnd: 1.8
-  GrappleActionEnd: 0.4
+  GrappleDuration: 1.5
+  GrappleStartupEnd: 1.3
+  GrappleActionEnd: 1
+  GrappleIdleEnd: 0.7
+  GrappleReturnEnd: 0.4
   JumpStrength: 200
   AirAttackJumpStrength: 50
   AirAttackEndDuration: 0.5

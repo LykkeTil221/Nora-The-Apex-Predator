@@ -32,6 +32,7 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject LeftArmCollider;
     public GameObject RightArmCollider;
     public GameObject AirAttackCollider;
+    public GameObject GrappleCollider;
 
     public float CurrentPlayerHealth;
     public float CurrentPlayerUnstoppable;
@@ -181,7 +182,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void GrabHitEnemy(EnemyStateManager Enemy)
     {
-
+        grappleState.EnemyIsGrabbed(Enemy);
     }
     public void PlayerStunned()
     {

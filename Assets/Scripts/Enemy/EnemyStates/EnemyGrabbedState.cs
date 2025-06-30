@@ -1,16 +1,29 @@
 using UnityEngine;
 
-public class EnemyGrabbedState : MonoBehaviour
+public class EnemyGrabbedState : EnemyBaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void EnterState(EnemyStateManager Enemy)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void FixedUpdate(EnemyStateManager Enemy)
     {
-        
+
+    }
+
+    public override void OnCollission(EnemyStateManager Enemy)
+    {
+
+    }
+
+    public override void Stun(EnemyStateManager Enemy)
+    {
+
+    }
+
+    public override void Update(EnemyStateManager Enemy)
+    {
+
     }
 }
