@@ -4,6 +4,7 @@ public class PlayerAttackAirState : PlayerBaseState
 {
     private float timer;
     private bool hasHitGround;
+    public bool attackLeft;
     public override void EnterState(PlayerStateManager Player)
     {
         Debug.Log("Hello from the air attack state");
@@ -72,7 +73,10 @@ public class PlayerAttackAirState : PlayerBaseState
 
     public override void LeftPunch(PlayerStateManager Player)
     {
-
+        if (!attackLeft)
+        {
+            Player.SwitchState(Player.grappleState);
+        }
     }
 
     public override void LeftSpecial(PlayerStateManager Player)
@@ -81,7 +85,10 @@ public class PlayerAttackAirState : PlayerBaseState
     }
     public override void RightPunch(PlayerStateManager Player)
     {
-
+        if (attackLeft)
+        {
+            Player.SwitchState(Player.grappleState);
+        }
     }
 
     public override void RightSpecial(PlayerStateManager Player)

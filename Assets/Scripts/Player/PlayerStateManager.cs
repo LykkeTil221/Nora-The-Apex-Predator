@@ -38,6 +38,8 @@ public class PlayerStateManager : MonoBehaviour
     public float CurrentPlayerUnstoppable;
 
     [SerializeField] GameObjectScrub PlayerReference;
+
+    public Rigidbody PlayerGrappleArmRigidBody;
     private void Start()
     {
         PlayerReference.GameObject = gameObject;

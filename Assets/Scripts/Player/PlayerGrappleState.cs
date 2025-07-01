@@ -4,12 +4,15 @@ public class PlayerGrappleState : PlayerBaseState
 {
     private float timer;
     private bool hasGrabbedEnemy;
+    private int ArmState;
     public override void EnterState(PlayerStateManager Player)
     {
         timer = Player.PlayerVars.GrappleDuration;
         Player.ChangePlayerMaterial(1);
-        Player.GrappleCollider.SetActive(true);
+        Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
         Player.GrappleCollider.transform.position = Player.transform.position;
+        Player.GrappleCollider.transform.rotation = Player.transform.rotation;
+        ArmState = 0;
     }
 
     public override void UpdateState(PlayerStateManager Player)
@@ -23,12 +26,29 @@ public class PlayerGrappleState : PlayerBaseState
         else if (timer < Player.PlayerVars.GrappleStartupEnd)
         {          
             Player.ChangePlayerMaterial(2);
-
+            Player.GrappleCollider.SetActive(true);
+            
         }
 
-        if(timer < Player.PlayerVars.GrappleIdleEnd)
+        if(timer < Player.PlayerVars.GrappleStartupEnd && ArmState ==0)
         {
-            Player.GrappleCollider.transform.position += Vector3.forward * 10;
+            Player.PlayerGrappleArmRigidBody.AddForce(Player.GrappleCollider.transform.forward * Player.PlayerVars.GrappleOutSpeed, ForceMode.Impulse);
+            ArmState = 1;
+        }
+        if(timer < Player.PlayerVars.GrappleActionEnd && ArmState == 1)
+        {
+            Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
+            ArmState = 2;
+        }
+
+        if(timer < Player.PlayerVars.GrappleIdleEnd && ArmState == 2)
+        {
+            Player.PlayerGrappleArmRigidBody.AddForce(-Player.GrappleCollider.transform.forward * Player.PlayerVars.GrappleReturnSpeed, ForceMode.Force);
+            if (Vector3.Distance(Player.transform.position, Player.GrappleCollider.transform.position) < 3)
+            {
+                Player.GrappleCollider.SetActive(false);
+
+            }
         }
 
         timer -= Time.deltaTime;
@@ -37,6 +57,8 @@ public class PlayerGrappleState : PlayerBaseState
             Player.SwitchToNeutralState();
             Player.ChangePlayerMaterial(0);
         }
+
+        
     }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
@@ -48,6 +70,7 @@ public class PlayerGrappleState : PlayerBaseState
         if (timer < Player.PlayerVars.GrappleStartupEnd)
         {
             Player.SwitchState(Player.dodgeState);
+            Player.GrappleCollider.SetActive(false);
         }
     }
 
@@ -85,6 +108,7 @@ public class PlayerGrappleState : PlayerBaseState
         {
             Player.SwitchState(Player.groundedState);
             Player.ChangePlayerMaterial(0);
+            Player.GrappleCollider.SetActive(false);
         }
     }
 

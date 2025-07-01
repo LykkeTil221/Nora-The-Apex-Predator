@@ -26,6 +26,8 @@ public class PlayerVariableContainer : ScriptableObject
     public float GrappleActionEnd;
     public float GrappleIdleEnd;
     public float GrappleReturnEnd;
+    public float GrappleOutSpeed;
+    public float GrappleReturnSpeed;
     [Header("Jump variables")]
     public float JumpStrength;
     [Header("Air attack variables")]

@@ -52,6 +52,7 @@ public class PlayerAirborneState : PlayerBaseState
     public override void LeftPunch(PlayerStateManager Player)
     {
         Player.SwitchState(Player.airAttackState);
+        Player.airAttackState.attackLeft = true;
     }
 
     public override void LeftSpecial(PlayerStateManager Player)
@@ -64,6 +65,7 @@ public class PlayerAirborneState : PlayerBaseState
     public override void RightPunch(PlayerStateManager Player)
     {
         Player.SwitchState(Player.airAttackState);
+        Player.airAttackState.attackLeft = false;
     }
 
     public override void RightSpecial(PlayerStateManager Player)
