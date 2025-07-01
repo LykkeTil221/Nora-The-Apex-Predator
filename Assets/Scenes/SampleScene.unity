@@ -1897,10 +1897,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290552761191909649, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4921723019400948524, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1909,13 +1905,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6834867973877977622, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
-      propertyPath: m_LinearDamping
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6123487667729816426, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
