@@ -11,6 +11,7 @@ public class PlayerGrabbingState : PlayerBaseState
         Player.GrappleCollider.transform.position = Enemy.transform.position;
         Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
         Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
+        Enemy.Rigidbody.isKinematic = true;
 
     }
 
@@ -77,6 +78,7 @@ public class PlayerGrabbingState : PlayerBaseState
         Enemy.SwitchToNeutralState();
         Enemy = null;
         Player.grappleState.Enemy = null;
+        Enemy.Rigidbody.isKinematic = false;
     }
     public override void Stun(PlayerStateManager Player)
     {
@@ -84,5 +86,6 @@ public class PlayerGrabbingState : PlayerBaseState
         Enemy.SwitchToNeutralState();
         Enemy = null;
         Player.grappleState.Enemy = null;
+        Enemy.Rigidbody.isKinematic = false;
     }
 }
