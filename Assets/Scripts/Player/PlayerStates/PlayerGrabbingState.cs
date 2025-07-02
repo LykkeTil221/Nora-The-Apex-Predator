@@ -17,7 +17,14 @@ public class PlayerGrabbingState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager Player)
     {
-
+        if (Player.IsGrounded)
+        {
+            Player.Rigidbody.linearDamping = Player.PlayerVars.GroundDrag;
+        }
+        else
+        {
+            Player.Rigidbody.linearDamping = 0;
+        }
     }
 
     public override void FixedUpdateState(PlayerStateManager Player)

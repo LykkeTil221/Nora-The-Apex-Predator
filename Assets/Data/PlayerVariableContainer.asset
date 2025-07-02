@@ -26,13 +26,14 @@ MonoBehaviour:
   DodgeActionEnd: 0.3
   DodgeDuration: 0.5
   EnergyCost: 0
-  GrappleDuration: 1.2
-  GrappleStartupEnd: 1
-  GrappleActionEnd: 0.7
-  GrappleIdleEnd: 0.5
+  GrappleDuration: 1
+  GrappleStartupEnd: 0.8
+  GrappleActionEnd: 0.65
+  GrappleIdleEnd: 0.4
   GrappleReturnEnd: 0.2
   GrappleOutSpeed: 70
   GrappleReturnSpeed: 200
+  AbsorbAttackDuration: 0
   JumpStrength: 200
   AirAttackJumpStrength: 50
   AirAttackEndDuration: 0.5
