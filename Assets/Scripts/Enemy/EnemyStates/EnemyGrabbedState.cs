@@ -4,7 +4,7 @@ public class EnemyGrabbedState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager Enemy)
     {
-
+        Debug.Log("Enemy is Grabbed");
     }
 
     public override void FixedUpdate(EnemyStateManager Enemy)

@@ -109,4 +109,8 @@ public class PlayerGroundedState : PlayerBaseState
     {
 
     }
+    public override void Stun(PlayerStateManager Player)
+    {
+
+    }
 }

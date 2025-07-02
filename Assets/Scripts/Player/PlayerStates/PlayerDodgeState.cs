@@ -91,4 +91,8 @@ public class PlayerDodgeState : PlayerBaseState
     {
         Player.CurrentPlayerUnstoppable -= Player.PlayerVars.DodgeUnstoppable;
     }
+    public override void Stun(PlayerStateManager Player)
+    {
+
+    }
 }

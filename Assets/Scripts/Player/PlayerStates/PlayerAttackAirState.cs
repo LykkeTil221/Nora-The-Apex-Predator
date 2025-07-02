@@ -99,4 +99,8 @@ public class PlayerAttackAirState : PlayerBaseState
     {
         Player.AirAttackCollider.SetActive(false);
     }
+    public override void Stun(PlayerStateManager Player)
+    {
+
+    }
 }

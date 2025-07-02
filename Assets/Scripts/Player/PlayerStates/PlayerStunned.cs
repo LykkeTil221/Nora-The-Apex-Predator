@@ -75,4 +75,8 @@ public class PlayerStunned : PlayerBaseState
     {
 
     }
+    public override void Stun(PlayerStateManager Player)
+    {
+
+    }
 }

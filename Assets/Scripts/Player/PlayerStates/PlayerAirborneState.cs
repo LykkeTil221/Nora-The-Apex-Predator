@@ -77,4 +77,8 @@ public class PlayerAirborneState : PlayerBaseState
     {
 
     }
+    public override void Stun(PlayerStateManager Player)
+    {
+
+    }
 }

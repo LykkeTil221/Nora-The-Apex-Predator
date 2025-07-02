@@ -14,4 +14,5 @@ public abstract class PlayerBaseState
     public abstract void RightSpecial(PlayerStateManager Player);
     public abstract void Interact(PlayerStateManager Player);
     public abstract void Cancel(PlayerStateManager Player);
+    public abstract void Stun(PlayerStateManager Player);
 }

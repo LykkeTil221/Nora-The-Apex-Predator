@@ -9,6 +9,7 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyAirborneState AirborneState = new EnemyAirborneState();
     public EnemyDetectPlayerState DetectState = new EnemyDetectPlayerState();
     public EnemyStunnedState StunnedState = new EnemyStunnedState();
+    public EnemyGrabbedState GrabbedState = new EnemyGrabbedState();
 
     public Rigidbody Rigidbody;
     public EnemyVariablesScrub EnemyStats;

@@ -15,6 +15,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerGrappleState grappleState = new PlayerGrappleState();
     public PlayerAttackAirState airAttackState = new PlayerAttackAirState();
     public PlayerStunned stunState = new PlayerStunned();
+    public PlayerGrabbingState grabbingState = new PlayerGrabbingState();
+
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
 
@@ -166,6 +168,10 @@ public class PlayerStateManager : MonoBehaviour
         if (context.canceled) return;
         print("Cancel Input");
         currentState.Cancel(this);
+    }
+    public void Stun()
+    {
+        currentState.Stun(this);
     }
 
     private Vector3 GetCameraforward(Camera playerCamera)

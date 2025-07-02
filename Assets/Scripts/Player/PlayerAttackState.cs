@@ -160,4 +160,8 @@ public class PlayerAttackState : PlayerBaseState
             Player.RightArmCollider.SetActive(false);
         }
     }
+    public override void Stun(PlayerStateManager Player)
+    {
+        
+    }
 }

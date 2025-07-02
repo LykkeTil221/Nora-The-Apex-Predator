@@ -1,9 +1,16 @@
 using UnityEngine;
 
-public class PlayerStateTemplate : PlayerBaseState
+public class PlayerGrabbingState : PlayerBaseState
 {
+    public EnemyStateManager Enemy;
+    private float timer;
     public override void EnterState(PlayerStateManager Player)
     {
+        Debug.Log("Grabbing state");
+        Player.grappleState.hasGrabbedEnemy = false;
+        Player.GrappleCollider.transform.position = Enemy.transform.position;
+        Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
+        Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
 
     }
 
@@ -57,10 +64,18 @@ public class PlayerStateTemplate : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
-
+        Player.SwitchState(Player.grappleState);
+        Player.grappleState.hasGrabbedEnemy = false;
+        Player.grappleState.timer = Player.PlayerVars.GrappleIdleEnd;
+        Enemy.SwitchToNeutralState();
+        Enemy = null;
+        Player.grappleState.Enemy = null;
     }
     public override void Stun(PlayerStateManager Player)
     {
-
+        Player.GrappleCollider.SetActive(false);
+        Enemy.SwitchToNeutralState();
+        Enemy = null;
+        Player.grappleState.Enemy = null;
     }
 }

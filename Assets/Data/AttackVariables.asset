@@ -17,7 +17,11 @@ MonoBehaviour:
     - Punch
     - Slam
     - RatBite
+    - GrappleGrab
+    - Absorb
     values:
     - {x: 3, y: 2}
     - {x: 6, y: 3}
     - {x: 2, y: 1}
+    - {x: 2, y: 0}
+    - {x: 2, y: 0}

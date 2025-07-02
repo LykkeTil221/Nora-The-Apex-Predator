@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class PlayerGrappleState : PlayerBaseState
 {
-    private float timer;
-    private bool hasGrabbedEnemy;
+    public float timer;
+    public bool hasGrabbedEnemy;
     private int ArmState;
+    public EnemyStateManager Enemy;
+
+    private PlayerStateManager stateManager;
     public override void EnterState(PlayerStateManager Player)
     {
         timer = Player.PlayerVars.GrappleDuration;
@@ -17,31 +20,36 @@ public class PlayerGrappleState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager Player)
     {
-        if (hasGrabbedEnemy) return;
+        if (hasGrabbedEnemy)
+        {
+            Player.grabbingState.Enemy = Enemy;
+            Player.SwitchState(Player.grabbingState);
+        }
+
         if (timer < Player.PlayerVars.GrappleActionEnd)
         {
             Player.ChangePlayerMaterial(3);
-           
+
         }
         else if (timer < Player.PlayerVars.GrappleStartupEnd)
-        {          
+        {
             Player.ChangePlayerMaterial(2);
             Player.GrappleCollider.SetActive(true);
-            
+
         }
 
-        if(timer < Player.PlayerVars.GrappleStartupEnd && ArmState ==0)
+        if (timer < Player.PlayerVars.GrappleStartupEnd && ArmState == 0)
         {
             Player.PlayerGrappleArmRigidBody.AddForce(Player.GrappleCollider.transform.forward * Player.PlayerVars.GrappleOutSpeed, ForceMode.Impulse);
             ArmState = 1;
         }
-        if(timer < Player.PlayerVars.GrappleActionEnd && ArmState == 1)
+        if (timer < Player.PlayerVars.GrappleActionEnd && ArmState == 1)
         {
             Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
             ArmState = 2;
         }
 
-        if(timer < Player.PlayerVars.GrappleIdleEnd && ArmState == 2)
+        if (timer < Player.PlayerVars.GrappleIdleEnd && ArmState == 2)
         {
             Player.PlayerGrappleArmRigidBody.AddForce(-Player.GrappleCollider.transform.forward * Player.PlayerVars.GrappleReturnSpeed, ForceMode.Force);
             if (Vector3.Distance(Player.transform.position, Player.GrappleCollider.transform.position) < 3)
@@ -58,7 +66,14 @@ public class PlayerGrappleState : PlayerBaseState
             Player.ChangePlayerMaterial(0);
         }
 
-        
+        if (Player.IsGrounded)
+        {
+            Player.Rigidbody.linearDamping = Player.PlayerVars.GroundDrag;
+        }
+        else
+        {
+            Player.Rigidbody.linearDamping = 0;
+        }
     }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
@@ -104,9 +119,9 @@ public class PlayerGrappleState : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
-        if (timer < Player.PlayerVars.GrappleStartupEnd)
+        if (timer > Player.PlayerVars.GrappleStartupEnd)
         {
-            Player.SwitchState(Player.groundedState);
+            Player.SwitchToNeutralState();
             Player.ChangePlayerMaterial(0);
             Player.GrappleCollider.SetActive(false);
         }
@@ -120,5 +135,10 @@ public class PlayerGrappleState : PlayerBaseState
     public void EnemyIsGrabbed(EnemyStateManager GrabbedEnemy)
     {
         hasGrabbedEnemy = true;
+        Enemy = GrabbedEnemy;
+    }
+    public override void Stun(PlayerStateManager Player)
+    {
+
     }
 }
