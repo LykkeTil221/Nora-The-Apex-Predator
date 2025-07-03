@@ -42,6 +42,9 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] GameObjectScrub PlayerReference;
 
     public Rigidbody PlayerGrappleArmRigidBody;
+
+    [SerializeField] public PlayerAttackVariables Attacks;
+    [SerializeField] public string AbsorbAttackName;
     private void Start()
     {
         PlayerReference.GameObject = gameObject;

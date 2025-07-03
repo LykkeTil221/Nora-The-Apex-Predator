@@ -4,7 +4,9 @@ public class PlayerGrabbingState : PlayerBaseState
 {
     public EnemyStateManager Enemy;
     public GameObject Object;
-    private float timer;
+    private float leftTimer;
+    private float rightTimer;
+    
     public override void EnterState(PlayerStateManager Player)
     {
         if(Enemy != null)
@@ -38,6 +40,9 @@ public class PlayerGrabbingState : PlayerBaseState
         {
             Player.Rigidbody.linearDamping = 0;
         }
+
+        if (leftTimer > 0) leftTimer -= Time.deltaTime;
+        if (rightTimer > 0) rightTimer -= Time.deltaTime;
     }
 
     public override void FixedUpdateState(PlayerStateManager Player)
@@ -66,16 +71,28 @@ public class PlayerGrabbingState : PlayerBaseState
 
     public override void LeftPunch(PlayerStateManager Player)
     {
-
+        if (leftTimer <= 0)
+        {
+            Debug.Log("LeftAbsorb");
+            leftTimer = Player.PlayerVars.AbsorbAttackDuration;
+            if (Enemy != null) Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            if (Object != null) Object.gameObject.GetComponent<LockDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+        }
     }
 
     public override void LeftSpecial(PlayerStateManager Player)
     {
-
+        
     }
     public override void RightPunch(PlayerStateManager Player)
     {
-
+        if (rightTimer <= 0)
+        {
+            Debug.Log("RightAbsorb");
+            rightTimer = Player.PlayerVars.AbsorbAttackDuration;
+            if (Enemy != null) Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            if (Object != null) Object.gameObject.GetComponent<LockDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+        }
     }
 
     public override void RightSpecial(PlayerStateManager Player)
@@ -98,6 +115,7 @@ public class PlayerGrabbingState : PlayerBaseState
         Player.grappleState.Enemy = null;
         Player.grappleState.hasGrabbedObject = false;
         Player.grappleState.Object = null;
+        Object = null;
     }
     public override void Stun(PlayerStateManager Player)
     {
@@ -112,5 +130,6 @@ public class PlayerGrabbingState : PlayerBaseState
         Player.grappleState.Enemy = null;
         Player.grappleState.hasGrabbedObject = false;
         Player.grappleState.Object = null;
+        Object = null;
     }
 }

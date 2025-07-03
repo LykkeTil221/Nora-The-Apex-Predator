@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5084101650115401185}
   - component: {fileID: 3268085029812965299}
   - component: {fileID: 3864121789707038979}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PhysicsTestCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,6 +653,8 @@ MonoBehaviour:
   CurrentPlayerUnstoppable: 0
   PlayerReference: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
   PlayerGrappleArmRigidBody: {fileID: 0}
+  Attacks: {fileID: 11400000, guid: 75cfc26e009bcda42979c1c2035e075d, type: 2}
+  AbsorbAttackName: Absorb
 --- !u!54 &6834867973877977622
 Rigidbody:
   m_ObjectHideFlags: 0

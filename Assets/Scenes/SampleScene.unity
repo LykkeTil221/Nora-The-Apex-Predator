@@ -1971,10 +1971,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 282784179931837631, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 454843375835950733, guid: 448bac82e941a77428dca013aa5d9a32, type: 3}
       propertyPath: PlayerCamera
       value: 
