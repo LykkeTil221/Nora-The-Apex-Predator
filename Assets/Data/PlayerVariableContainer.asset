@@ -21,7 +21,7 @@ MonoBehaviour:
   PunchDuration: 0.55
   PunchActionEnd: 0.3
   PunchStartupEnd: 0.4
-  PunchForwardSpeed: 100
+  PunchForwardSpeed: 40
   DodgeLungeForce: 550
   DodgeActionEnd: 0.3
   DodgeDuration: 0.5
@@ -32,7 +32,7 @@ MonoBehaviour:
   GrappleIdleEnd: 0.4
   GrappleReturnEnd: 0.2
   GrappleOutSpeed: 70
-  GrappleReturnSpeed: 200
+  GrappleReturnSpeed: 70
   AbsorbAttackDuration: 0
   JumpStrength: 200
   AirAttackJumpStrength: 50

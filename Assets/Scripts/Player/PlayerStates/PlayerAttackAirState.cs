@@ -98,9 +98,10 @@ public class PlayerAttackAirState : PlayerBaseState
     public override void Cancel(PlayerStateManager Player)
     {
         Player.AirAttackCollider.SetActive(false);
+        Player.SwitchToNeutralState();
     }
     public override void Stun(PlayerStateManager Player)
     {
-
+        Player.AirAttackCollider.SetActive(false);
     }
 }

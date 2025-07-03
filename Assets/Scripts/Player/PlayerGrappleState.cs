@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerGrappleState : PlayerBaseState
 {
     public float timer;
     public bool hasGrabbedEnemy;
+    public bool hasGrabbedObject;
     private int ArmState;
     public EnemyStateManager Enemy;
+    public GameObject Object;
 
     private PlayerStateManager stateManager;
     public override void EnterState(PlayerStateManager Player)
@@ -25,7 +28,11 @@ public class PlayerGrappleState : PlayerBaseState
             Player.grabbingState.Enemy = Enemy;
             Player.SwitchState(Player.grabbingState);
         }
-
+        if (hasGrabbedObject)
+        {
+            Player.grabbingState.Object = Object;
+            Player.SwitchState(Player.grabbingState);
+        }
         if (timer < Player.PlayerVars.GrappleActionEnd)
         {
             Player.ChangePlayerMaterial(3);
@@ -51,7 +58,12 @@ public class PlayerGrappleState : PlayerBaseState
 
         if (timer < Player.PlayerVars.GrappleIdleEnd && ArmState == 2)
         {
-            Player.PlayerGrappleArmRigidBody.AddForce(-Player.GrappleCollider.transform.forward * Player.PlayerVars.GrappleReturnSpeed, ForceMode.Force);
+            //Player.PlayerGrappleArmRigidBody.AddForce(-Player.GrappleCollider.transform.forward * Player.PlayerVars.GrappleReturnSpeed, ForceMode.Force);
+
+            //float step = grappleSpeed * Time.deltaTime;
+            //grappleRB.position = Vector3.MoveTowards(grappleRB.position, transform.position, step);
+            float step = Player.PlayerVars.GrappleReturnSpeed * Time.deltaTime;
+            Player.GrappleCollider.transform.position = Vector3.MoveTowards(Player.GrappleCollider.transform.position, Player.transform.position, step);
             if (Vector3.Distance(Player.transform.position, Player.GrappleCollider.transform.position) < 3)
             {
                 Player.GrappleCollider.SetActive(false);
@@ -136,6 +148,11 @@ public class PlayerGrappleState : PlayerBaseState
     {
         hasGrabbedEnemy = true;
         Enemy = GrabbedEnemy;
+    }
+    public void ObjectIsGrabbed(GameObject grabbedObject)
+    {
+        Object = grabbedObject;
+        hasGrabbedObject = true;
     }
     public override void Stun(PlayerStateManager Player)
     {

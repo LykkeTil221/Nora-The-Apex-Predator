@@ -22,6 +22,7 @@ public class PlayerAttackState : PlayerBaseState
         timer = Player.PlayerVars.PunchDuration;
         Player.ChangePlayerMaterial(1);
         Debug.Log(currentCombo);
+        Player.Rigidbody.linearVelocity = Vector3.zero;
     }
 
     public override void UpdateState(PlayerStateManager Player)

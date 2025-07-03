@@ -3,15 +3,27 @@ using UnityEngine;
 public class PlayerGrabbingState : PlayerBaseState
 {
     public EnemyStateManager Enemy;
+    public GameObject Object;
     private float timer;
     public override void EnterState(PlayerStateManager Player)
     {
+        if(Enemy != null)
+        {
+            Player.grappleState.hasGrabbedEnemy = false;
+            Player.GrappleCollider.transform.position = Enemy.transform.position;
+            Enemy.Rigidbody.isKinematic = true;
+        }
+        if(Object != null)
+        {
+            Player.grappleState.hasGrabbedObject = false;
+            Player.GrappleCollider.transform.position = Object.transform.position;
+        }
         Debug.Log("Grabbing state");
-        Player.grappleState.hasGrabbedEnemy = false;
-        Player.GrappleCollider.transform.position = Enemy.transform.position;
+        
+        
         Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
         Player.PlayerGrappleArmRigidBody.linearVelocity = Vector3.zero;
-        Enemy.Rigidbody.isKinematic = true;
+        
 
     }
 
@@ -72,20 +84,33 @@ public class PlayerGrabbingState : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
+        if (Enemy != null)
+        {
+            Enemy.Rigidbody.isKinematic = false;
+            Enemy.SwitchToNeutralState();
+            Enemy = null;
+        }
+            
         Player.SwitchState(Player.grappleState);
         Player.grappleState.hasGrabbedEnemy = false;
         Player.grappleState.timer = Player.PlayerVars.GrappleIdleEnd;
-        Enemy.SwitchToNeutralState();
-        Enemy = null;
+        
         Player.grappleState.Enemy = null;
-        Enemy.Rigidbody.isKinematic = false;
+        Player.grappleState.hasGrabbedObject = false;
+        Player.grappleState.Object = null;
     }
     public override void Stun(PlayerStateManager Player)
     {
+        if (Enemy != null)
+        {
+            Enemy.Rigidbody.isKinematic = false;
+            Enemy.SwitchToNeutralState();
+            Enemy = null;
+        }
         Player.GrappleCollider.SetActive(false);
         Enemy.SwitchToNeutralState();
-        Enemy = null;
         Player.grappleState.Enemy = null;
-        Enemy.Rigidbody.isKinematic = false;
+        Player.grappleState.hasGrabbedObject = false;
+        Player.grappleState.Object = null;
     }
 }
