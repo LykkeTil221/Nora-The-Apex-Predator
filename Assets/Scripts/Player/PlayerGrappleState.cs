@@ -25,11 +25,13 @@ public class PlayerGrappleState : PlayerBaseState
     {
         if (hasGrabbedEnemy)
         {
+            Player.grabbingState.HasGrabbedEnemy = true;
             Player.grabbingState.Enemy = Enemy;
             Player.SwitchState(Player.grabbingState);
         }
         if (hasGrabbedObject)
         {
+            Player.grabbingState.HasGrabbedObject = true;
             Player.grabbingState.Object = Object;
             Player.SwitchState(Player.grabbingState);
         }

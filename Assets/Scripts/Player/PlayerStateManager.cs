@@ -19,6 +19,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
+    public PlayerEnergy EnergyManager;
 
     public Camera PlayerCamera;
     public Vector3 ForceDirection;

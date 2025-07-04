@@ -6,10 +6,13 @@ public class PlayerVariableContainer : ScriptableObject
 
     [Header("Player Stats")]
     public float PlayerHealth;
-    public float PlayerEnergy;
     public float Unstoppable;
     public float stunDuration;
     public float IFrames;
+    [Header("Energy variables")]
+    public float PlayerEnergy;
+    public float PlayerEnergyGainMMultiplier;
+    public float TimeUntilEnergyRecovery;
     [Header("Punch variables")]
     public float PunchDuration;
     public float PunchActionEnd;
@@ -19,7 +22,7 @@ public class PlayerVariableContainer : ScriptableObject
     public float DodgeLungeForce;
     public float DodgeActionEnd;
     public float DodgeDuration;
-    public float EnergyCost;
+    public float DodgeEnergyCost;
     [Header("Grapple variables")]
     public float GrappleDuration;
     public float GrappleStartupEnd;

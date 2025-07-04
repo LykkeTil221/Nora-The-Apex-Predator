@@ -8,18 +8,27 @@ public class PlayerDodgeState : PlayerBaseState
 
     public override void EnterState(PlayerStateManager Player)
     {
-        Player.CurrentPlayerUnstoppable += Player.PlayerVars.DodgeUnstoppable;
-        Debug.Log("Hello from the dodge state!");
-        timer = Player.PlayerVars.DodgeDuration;
-
-        if (Player.MoveDirection != Vector3.zero)
+        if(Player.PlayerVars.DodgeEnergyCost > Player.EnergyManager.CurrentPlayerEnergy)
         {
-            Quaternion toRotation = Quaternion.LookRotation(Player.MoveDirection, Vector3.up);
-
-            Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, toRotation, 10000 * Time.deltaTime);
+            Player.SwitchToNeutralState();
         }
+        else
+        {
+            Player.EnergyManager.SpendEnergy(Player.PlayerVars.DodgeEnergyCost);
+            Player.CurrentPlayerUnstoppable += Player.PlayerVars.DodgeUnstoppable;
+            Debug.Log("Hello from the dodge state!");
+            timer = Player.PlayerVars.DodgeDuration;
 
-        Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.DodgeLungeForce,ForceMode.Impulse);
+            if (Player.MoveDirection != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(Player.MoveDirection, Vector3.up);
+
+                Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, toRotation, 10000 * Time.deltaTime);
+            }
+
+            Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.DodgeLungeForce, ForceMode.Impulse);
+        }
+        
     }
 
     public override void UpdateState(PlayerStateManager Player)
