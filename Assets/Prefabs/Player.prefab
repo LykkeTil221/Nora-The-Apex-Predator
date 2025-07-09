@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 6834867973877977622}
   - component: {fileID: 7261580458337181852}
   - component: {fileID: 954560257316998923}
+  - component: {fileID: 6626079345202424005}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -636,6 +637,8 @@ MonoBehaviour:
   MoveVector: {x: 0, y: 0, z: 0}
   Rigidbody: {fileID: 6834867973877977622}
   IsGrounded: 0
+  EnergyManager: {fileID: 6626079345202424005}
+  HealthManager: {fileID: 954560257316998923}
   PlayerCamera: {fileID: 0}
   ForceDirection: {x: 0, y: 0, z: 0}
   MoveDirection: {x: 0, y: 0, z: 0}
@@ -649,6 +652,7 @@ MonoBehaviour:
   RightArmCollider: {fileID: 8091623035129244069}
   AirAttackCollider: {fileID: 6679670085269585772}
   GrappleCollider: {fileID: 0}
+  CurrentMaxHealth: 0
   CurrentPlayerHealth: 0
   CurrentPlayerUnstoppable: 0
   PlayerReference: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
@@ -715,6 +719,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 454843375835950733}
   timer: 0
+  heartManager: {fileID: 0}
+--- !u!114 &6626079345202424005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5892934531336131943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e158b43f13f0894f9b402ca939dfaf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStats: {fileID: 11400000, guid: 3ff332927d4bf094caa74b4b8c0f529a, type: 2}
+  MaxPlayerEnergy: 0
+  CurrentPlayerEnergy: 0
+  UIenergy: {fileID: 0}
 --- !u!1 &5927794109063980928
 GameObject:
   m_ObjectHideFlags: 0

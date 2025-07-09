@@ -27,6 +27,15 @@ public class PlayerDamageManager : MonoBehaviour
         }
         heartManager.DrawHearts();
     }
+    public void HealHeallth(float healthGain)
+    {
+        Player.CurrentPlayerHealth += healthGain;
+        if(Player.CurrentPlayerHealth > Player.CurrentMaxHealth)
+        {
+            Player.CurrentPlayerHealth = Player.CurrentMaxHealth;
+        }
+        heartManager.DrawHearts();
+    }
 
     private void Update()
     {

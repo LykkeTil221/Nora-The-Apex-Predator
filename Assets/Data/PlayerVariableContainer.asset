@@ -36,7 +36,8 @@ MonoBehaviour:
   GrappleReturnEnd: 0.2
   GrappleOutSpeed: 70
   GrappleReturnSpeed: 70
-  AbsorbAttackDuration: 0
+  AbsorbAttackDuration: 0.3
+  absorbedHealthDivider: 2
   JumpStrength: 200
   AirAttackJumpStrength: 50
   AirAttackEndDuration: 0.5

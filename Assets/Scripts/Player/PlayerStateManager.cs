@@ -20,6 +20,7 @@ public class PlayerStateManager : MonoBehaviour
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
     public PlayerEnergy EnergyManager;
+    public PlayerDamageManager HealthManager;
 
     public Camera PlayerCamera;
     public Vector3 ForceDirection;
@@ -37,6 +38,7 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject AirAttackCollider;
     public GameObject GrappleCollider;
 
+    public float CurrentMaxHealth;
     public float CurrentPlayerHealth;
     public float CurrentPlayerUnstoppable;
 
@@ -48,7 +50,8 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] public string AbsorbAttackName;
     private void Awake()
     {
-        CurrentPlayerHealth = PlayerVars.PlayerStartingHearts * PlayerVars.HeartValue;
+        CurrentMaxHealth = PlayerVars.PlayerStartingHearts * PlayerVars.HeartValue;
+        CurrentPlayerHealth = CurrentMaxHealth;
         CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
 
     }

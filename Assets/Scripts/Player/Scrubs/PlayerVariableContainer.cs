@@ -34,6 +34,7 @@ public class PlayerVariableContainer : ScriptableObject
     public float GrappleReturnSpeed;
     [Header("Absorb variables")]
     public float AbsorbAttackDuration;
+    public float absorbedHealthDivider;
     [Header("Jump variables")]
     public float JumpStrength;
     [Header("Air attack variables")]

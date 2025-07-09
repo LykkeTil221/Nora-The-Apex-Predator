@@ -153,10 +153,15 @@ public class PlayerGrabbingState : PlayerBaseState
         if (HasGrabbedEnemy)
         {
             Player.EnergyManager.MaxGainEnergy();
+            float healthGain = Enemy.EnemyStats.Health / Player.PlayerVars.absorbedHealthDivider;
+            healthGain = Mathf.Round(healthGain * 10.0f) * 1f;
+            Player.HealthManager.HealHeallth(healthGain);
+            Debug.Log("PLayer healed " + healthGain);
         }
         if (HasGrabbedObject)
         {
             Player.EnergyManager.GainEnergy(25);
+            
         }
 
         if (Enemy != null)
