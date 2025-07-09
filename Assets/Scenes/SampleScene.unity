@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 139778822}
   - component: {fileID: 139778821}
   - component: {fileID: 139778820}
+  - component: {fileID: 139778823}
   m_Layer: 5
   m_Name: HeartContainer
   m_TagString: Untagged
@@ -317,6 +318,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139778818}
   m_CullTransparentMesh: 1
+--- !u!114 &139778823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139778818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2118c41ee9e35048bbb95c75982caf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIHeartPrefab: {fileID: 733339672898408399, guid: 825b76c316e4083439889e4316055d9b, type: 3}
+  Player: {fileID: 1555648126}
+  hearts: []
 --- !u!1 &171560984
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +851,6 @@ GameObject:
   - component: {fileID: 464806367}
   - component: {fileID: 464806366}
   - component: {fileID: 464806370}
-  - component: {fileID: 464806371}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -942,19 +957,6 @@ MonoBehaviour:
   Slider: {fileID: 1575892700}
   UIEnergyBar: {fileID: 1575892698}
   timeBeforeWheelDissapears: 1.5
---- !u!114 &464806371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464806365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2118c41ee9e35048bbb95c75982caf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIHeartPrefab: {fileID: 0}
 --- !u!1 &543528853
 GameObject:
   m_ObjectHideFlags: 0

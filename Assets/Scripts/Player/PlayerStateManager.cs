@@ -46,6 +46,12 @@ public class PlayerStateManager : MonoBehaviour
 
     [SerializeField] public PlayerAttackVariables Attacks;
     [SerializeField] public string AbsorbAttackName;
+    private void Awake()
+    {
+        CurrentPlayerHealth = PlayerVars.PlayerStartingHearts * PlayerVars.HeartValue;
+        CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
+
+    }
     private void Start()
     {
         PlayerReference.GameObject = gameObject;
@@ -54,7 +60,7 @@ public class PlayerStateManager : MonoBehaviour
 
         currentState.EnterState(this);
 
-        CurrentPlayerHealth = PlayerVars.PlayerHealth;
+        CurrentPlayerHealth = PlayerVars.PlayerStartingHearts * PlayerVars.HeartValue;
         CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
     }
     private void Update()

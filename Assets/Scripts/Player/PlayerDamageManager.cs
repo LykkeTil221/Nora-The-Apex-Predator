@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class PlayerDamageManager : MonoBehaviour
 {
     [SerializeField] private PlayerStateManager Player;
     [SerializeField] private float timer;
+    [SerializeField] UIHeartManager heartManager;
+
     public void TakeDamage(float damage, float stun, string attackID)
     {
         if (timer > 0) return;        
@@ -22,6 +25,7 @@ public class PlayerDamageManager : MonoBehaviour
             //Midlertidig
             SceneManager.LoadScene(0);
         }
+        heartManager.DrawHearts();
     }
 
     private void Update()

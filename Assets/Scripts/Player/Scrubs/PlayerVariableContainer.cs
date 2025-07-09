@@ -5,7 +5,8 @@ public class PlayerVariableContainer : ScriptableObject
     public Rigidbody Rigidbody;
 
     [Header("Player Stats")]
-    public float PlayerHealth;
+    public float PlayerStartingHearts;
+    public float HeartValue;
     public float Unstoppable;
     public float stunDuration;
     public float IFrames;
