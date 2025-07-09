@@ -160,7 +160,7 @@ public class PlayerGrabbingState : PlayerBaseState
         }
         if (HasGrabbedObject)
         {
-            Player.EnergyManager.GainEnergy(25);
+            //Player.EnergyManager.GainEnergy(25);
             
         }
 
