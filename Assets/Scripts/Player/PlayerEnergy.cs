@@ -3,15 +3,40 @@ using UnityEngine;
 public class PlayerEnergy : MonoBehaviour
 {
     [SerializeField] private PlayerVariableContainer PlayerStats;
-    [SerializeField] private float MaxPlayerEnergy;
+    [SerializeField] public float MaxPlayerEnergy;
+    [SerializeField] private float Wheel1Max;
+    [SerializeField] private float Wheel1Min;
+    [SerializeField] private float Wheel2Max;
+    [SerializeField] private float Wheel2Min;
+    [SerializeField] private float Wheel3Max;
+    [SerializeField] private float Wheel3Min;
     [SerializeField] public float CurrentPlayerEnergy;
     float timer;
-    [SerializeField] private UIPlayerEnergy UIenergy;
+    [SerializeField] private UIPlayerEnergy UIenergyWheel1;
+    [SerializeField] public UIPlayerEnergy UIenergyWheel2;
+    [SerializeField] public UIPlayerEnergy UIenergyWheel3;
+
+    [SerializeField] private GameObject Wheel2;
+    [SerializeField] private GameObject Wheel3;
     private void Start()
     {
         MaxPlayerEnergy = PlayerStats.PlayerEnergy;
         CurrentPlayerEnergy = MaxPlayerEnergy;
-        UIenergy.SetMaxEnergy(MaxPlayerEnergy);
+        UIenergyWheel1.SetMaxEnergy(Wheel1Min,Wheel1Max);
+        UIenergyWheel2.SetMaxEnergy(Wheel2Min,Wheel2Max);
+        UIenergyWheel3.SetMaxEnergy(Wheel3Min,Wheel3Max);
+
+        UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel3.SetEnergy(CurrentPlayerEnergy);
+        if (MaxPlayerEnergy <= Wheel2Min)
+        {
+            Wheel2.SetActive(false);
+        }
+        if(MaxPlayerEnergy <= Wheel3Min)
+        {
+            Wheel3.SetActive(false);
+        }
     }
     private void Update()
     {
@@ -19,31 +44,41 @@ public class PlayerEnergy : MonoBehaviour
         if (timer <= 0 && CurrentPlayerEnergy < MaxPlayerEnergy)
         {
             CurrentPlayerEnergy += PlayerStats.PlayerEnergyGainMMultiplier * Time.deltaTime;
-            UIenergy.SetEnergy(CurrentPlayerEnergy);
+            UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
+            UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
+            UIenergyWheel3.SetEnergy(CurrentPlayerEnergy);
         }
         if (CurrentPlayerEnergy > MaxPlayerEnergy) 
         {
             CurrentPlayerEnergy = MaxPlayerEnergy;
-            UIenergy.SetEnergy(UIenergy.Slider.maxValue);
+            UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
+            UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
+            UIenergyWheel3.SetEnergy(CurrentPlayerEnergy);
         }
     }
     public void SpendEnergy(float spentEnergy)
     {
         CurrentPlayerEnergy -= spentEnergy;
         timer = PlayerStats.TimeUntilEnergyRecovery;
-        UIenergy.SetEnergy(CurrentPlayerEnergy);
-        if(CurrentPlayerEnergy < 0) CurrentPlayerEnergy = 0;
+        UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel3.SetEnergy(CurrentPlayerEnergy);
+        if (CurrentPlayerEnergy < 0) CurrentPlayerEnergy = 0;
     }
 
     public void GainEnergy(float GainedEnergy)
     {
         if (CurrentPlayerEnergy == MaxPlayerEnergy) return;
         CurrentPlayerEnergy += GainedEnergy;
-        UIenergy.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel3.SetEnergy(CurrentPlayerEnergy);
         if (CurrentPlayerEnergy > MaxPlayerEnergy)
         {
             CurrentPlayerEnergy = MaxPlayerEnergy;
-            UIenergy.SetEnergy(UIenergy.Slider.maxValue);
+            UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
+            UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
+            UIenergyWheel3.SetEnergy(CurrentPlayerEnergy);
         }
         timer = 0;
     }
@@ -53,6 +88,8 @@ public class PlayerEnergy : MonoBehaviour
         if (CurrentPlayerEnergy == MaxPlayerEnergy) return;
         CurrentPlayerEnergy = MaxPlayerEnergy;
         timer = 0;
-        UIenergy.SetEnergy(UIenergy.Slider.maxValue);
+        UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
+        UIenergyWheel3.SetEnergy(CurrentPlayerEnergy);
     }
 }

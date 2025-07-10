@@ -25,7 +25,7 @@ public class PlayerDamageManager : MonoBehaviour
             //Midlertidig
             SceneManager.LoadScene(0);
         }
-        heartManager.DrawHearts();
+        heartManager.UpdateHearts();
     }
     public void HealHeallth(float healthGain)
     {
@@ -34,7 +34,7 @@ public class PlayerDamageManager : MonoBehaviour
         {
             Player.CurrentPlayerHealth = Player.CurrentMaxHealth;
         }
-        heartManager.DrawHearts();
+        heartManager.UpdateHearts();
     }
 
     private void Update()

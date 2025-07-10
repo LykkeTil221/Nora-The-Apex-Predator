@@ -154,7 +154,7 @@ public class PlayerGrabbingState : PlayerBaseState
         {
             Player.EnergyManager.MaxGainEnergy();
             float healthGain = Enemy.EnemyStats.Health / Player.PlayerVars.absorbedHealthDivider;
-            healthGain = Mathf.Round(healthGain * 10.0f) * 1f;
+            healthGain = Mathf.Ceil(healthGain);
             Player.HealthManager.HealHeallth(healthGain);
             Debug.Log("PLayer healed " + healthGain);
         }

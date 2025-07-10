@@ -11,6 +11,7 @@ public class UIHeartManager : MonoBehaviour
     private void Start()
     {
         DrawHearts();
+        UpdateHearts();
     }
     public void DrawHearts()
     {
@@ -20,10 +21,15 @@ public class UIHeartManager : MonoBehaviour
         for (int i = 0; i < heartsToMake; i++)
         {
             CreateEmptyHeart();
+
         }
-        for(int i = 0; i < hearts.Count; i++)
+        
+    }
+    public void UpdateHearts()
+    {
+        for (int i = 0; i < hearts.Count; i++)
         {
-            int currentHealthStatus = (int)Mathf.Clamp(Player.CurrentPlayerHealth - (i*4),0,4);
+            int currentHealthStatus = (int)Mathf.Clamp(Player.CurrentPlayerHealth - (i * 4), 0, 4);
             Debug.Log(currentHealthStatus);
             hearts[i].SetHeartImage((HeartStatus)currentHealthStatus);
         }

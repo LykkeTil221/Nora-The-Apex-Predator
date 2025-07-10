@@ -734,8 +734,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerStats: {fileID: 11400000, guid: 3ff332927d4bf094caa74b4b8c0f529a, type: 2}
   MaxPlayerEnergy: 0
+  Wheel1Max: 100
+  Wheel1Min: 0
+  Wheel2Max: 200
+  Wheel2Min: 100
+  Wheel3Max: 300
+  Wheel3Min: 200
   CurrentPlayerEnergy: 0
-  UIenergy: {fileID: 0}
+  UIenergyWheel1: {fileID: 0}
+  UIenergyWheel2: {fileID: 0}
+  UIenergyWheel3: {fileID: 0}
+  Wheel2: {fileID: 0}
+  Wheel3: {fileID: 0}
 --- !u!1 &5927794109063980928
 GameObject:
   m_ObjectHideFlags: 0
