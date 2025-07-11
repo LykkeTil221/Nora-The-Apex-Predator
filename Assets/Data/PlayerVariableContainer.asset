@@ -50,3 +50,5 @@ MonoBehaviour:
   GroundDrag: 10
   AirDrag: 0
   DodgeUnstoppable: 10
+  HealthEssenceValue: 4
+  EnergyEssenceValue: 4

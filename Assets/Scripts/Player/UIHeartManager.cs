@@ -16,7 +16,7 @@ public class UIHeartManager : MonoBehaviour
     public void DrawHearts()
     {
         ClearHearts();
-        int heartsToMake = (int)Player.PlayerVars.PlayerStartingHearts;
+        int heartsToMake = (int)Player.currentHeartAmount;
 
         for (int i = 0; i < heartsToMake; i++)
         {

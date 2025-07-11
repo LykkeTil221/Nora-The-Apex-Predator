@@ -19,4 +19,23 @@ public class EnemyVariablesScrub : ScriptableObject
     [Header("Player Detection")]
     public Vector3 SweetSpotRange;
     public float attentionSpan;
+    [Header("Unique Properties")]
+    public EnemySkills enemySkill;
+    public EnemyEssense enemyEssense;
+    public enum EnemySkills
+    {
+        None,
+        SolarPulse,
+        RocketPunch,
+        Fireball,
+        Boulder,
+    }
+    public enum EnemyEssense
+    {
+        None,
+        QHeart,
+        FullHeart,
+        QEnergy,
+        FullEnergy,
+    }
 }

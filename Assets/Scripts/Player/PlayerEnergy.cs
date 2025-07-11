@@ -4,6 +4,7 @@ public class PlayerEnergy : MonoBehaviour
 {
     [SerializeField] private PlayerVariableContainer PlayerStats;
     [SerializeField] public float MaxPlayerEnergy;
+    [SerializeField] public float ExtraEnergy;
     [SerializeField] private float Wheel1Max;
     [SerializeField] private float Wheel1Min;
     [SerializeField] private float Wheel2Max;
@@ -18,13 +19,17 @@ public class PlayerEnergy : MonoBehaviour
 
     [SerializeField] private GameObject Wheel2;
     [SerializeField] private GameObject Wheel3;
-    private void Start()
+    private void Awake()
+    {
+        SetMaxEnergy();
+    }
+    public void SetMaxEnergy()
     {
         MaxPlayerEnergy = PlayerStats.PlayerEnergy;
         CurrentPlayerEnergy = MaxPlayerEnergy;
-        UIenergyWheel1.SetMaxEnergy(Wheel1Min,Wheel1Max);
-        UIenergyWheel2.SetMaxEnergy(Wheel2Min,Wheel2Max);
-        UIenergyWheel3.SetMaxEnergy(Wheel3Min,Wheel3Max);
+        UIenergyWheel1.SetMaxEnergy(Wheel1Min, Wheel1Max);
+        UIenergyWheel2.SetMaxEnergy(Wheel2Min, Wheel2Max);
+        UIenergyWheel3.SetMaxEnergy(Wheel3Min, Wheel3Max);
 
         UIenergyWheel1.SetEnergy(CurrentPlayerEnergy);
         UIenergyWheel2.SetEnergy(CurrentPlayerEnergy);
@@ -33,7 +38,7 @@ public class PlayerEnergy : MonoBehaviour
         {
             Wheel2.SetActive(false);
         }
-        if(MaxPlayerEnergy <= Wheel3Min)
+        if (MaxPlayerEnergy <= Wheel3Min)
         {
             Wheel3.SetActive(false);
         }

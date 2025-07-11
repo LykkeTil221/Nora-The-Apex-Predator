@@ -14,6 +14,7 @@ public class PlayerVariableContainer : ScriptableObject
     public float PlayerEnergy;
     public float PlayerEnergyGainMMultiplier;
     public float TimeUntilEnergyRecovery;
+    public float ExtraEnergyPerUpgrade;
     [Header("Punch variables")]
     public float PunchDuration;
     public float PunchActionEnd;
@@ -52,6 +53,9 @@ public class PlayerVariableContainer : ScriptableObject
     public float AirDrag;
     [Header("Additional state based Unstoppable Values")]
     public float DodgeUnstoppable;
+    [Header("EssenseValue")]
+    public int HealthEssenceValue;
+    public int EnergyEssenceValue;
 
     
 }

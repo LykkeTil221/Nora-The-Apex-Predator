@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3ad759c0734c6c4dae530ca2ab907a5, type: 3}
-  m_Name: BasicEnemy
+  m_Name: FEBloomrat
   m_EditorClassIdentifier: 
   Health: 5
   Unstoppable: 0
@@ -24,5 +24,5 @@ MonoBehaviour:
   playerObject: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
   SweetSpotRange: {x: 0, y: 3, z: 10}
   attentionSpan: 5
-  enemySkill: 0
-  enemyEssense: 0
+  enemySkill: 1
+  enemyEssense: 4

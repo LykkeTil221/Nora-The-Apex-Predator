@@ -38,6 +38,8 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject AirAttackCollider;
     public GameObject GrappleCollider;
 
+    public float extraHearts;
+    public float currentHeartAmount;
     public float CurrentMaxHealth;
     public float CurrentPlayerHealth;
     public float CurrentPlayerUnstoppable;
@@ -48,10 +50,13 @@ public class PlayerStateManager : MonoBehaviour
 
     [SerializeField] public PlayerAttackVariables Attacks;
     [SerializeField] public string AbsorbAttackName;
+
+    public PlayerUnlockManager unlockManager;
+    public PlayerEnergy energy;
     private void Awake()
     {
-        CurrentMaxHealth = PlayerVars.PlayerStartingHearts * PlayerVars.HeartValue;
-        CurrentPlayerHealth = CurrentMaxHealth;
+        SetMaxHealth();
+        
         CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
 
     }
@@ -214,5 +219,12 @@ public class PlayerStateManager : MonoBehaviour
     {
         currentState.Cancel(this);
         SwitchState(stunState);
+    }
+
+    public void SetMaxHealth()
+    {
+        currentHeartAmount = PlayerVars.PlayerStartingHearts + extraHearts;
+        CurrentMaxHealth = currentHeartAmount * PlayerVars.HeartValue;
+        CurrentPlayerHealth = CurrentMaxHealth;
     }
 }
