@@ -21,6 +21,7 @@ MonoBehaviour:
   PlayerEnergy: 225
   PlayerEnergyGainMMultiplier: 5
   TimeUntilEnergyRecovery: 1
+  ExtraEnergyPerUpgrade: 25
   PunchDuration: 0.55
   PunchActionEnd: 0.3
   PunchStartupEnd: 0.4

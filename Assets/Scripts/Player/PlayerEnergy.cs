@@ -25,7 +25,7 @@ public class PlayerEnergy : MonoBehaviour
     }
     public void SetMaxEnergy()
     {
-        MaxPlayerEnergy = PlayerStats.PlayerEnergy;
+        MaxPlayerEnergy = PlayerStats.PlayerEnergy + ExtraEnergy;
         CurrentPlayerEnergy = MaxPlayerEnergy;
         UIenergyWheel1.SetMaxEnergy(Wheel1Min, Wheel1Max);
         UIenergyWheel2.SetMaxEnergy(Wheel2Min, Wheel2Max);
