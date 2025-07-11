@@ -20,9 +20,9 @@ public class EnemyVariablesScrub : ScriptableObject
     public Vector3 SweetSpotRange;
     public float attentionSpan;
     [Header("Unique Properties")]
-    public EnemySkills enemySkill;
+    public EnemyMutation enemyMutation;
     public EnemyEssense enemyEssense;
-    public enum EnemySkills
+    public enum EnemyMutation
     {
         None,
         SolarPulse,
