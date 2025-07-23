@@ -18,7 +18,7 @@ MonoBehaviour:
   Unstoppable: 1
   stunDuration: 0.15
   IFrames: 0.6
-  PlayerEnergy: 225
+  PlayerEnergy: 100
   PlayerEnergyGainMMultiplier: 5
   TimeUntilEnergyRecovery: 1
   ExtraEnergyPerUpgrade: 25

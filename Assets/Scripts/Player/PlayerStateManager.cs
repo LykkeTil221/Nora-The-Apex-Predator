@@ -53,6 +53,9 @@ public class PlayerStateManager : MonoBehaviour
 
     public PlayerUnlockManager unlockManager;
     public PlayerEnergy energy;
+
+    public PlayerBaseState currentLeftSpecial;
+    public PlayerBaseState currentRightSpecial;
     private void Awake()
     {
         SetMaxHealth();
@@ -167,13 +170,27 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (context.canceled) return;
         print("LeftSpecial input");
-        currentState.LeftPunch(this);
+        if (currentState != currentLeftSpecial)
+        {
+            SwitchState(currentLeftSpecial);
+        }
+        else
+        {
+            currentState.LeftSpecial(this);
+        }
     }
     public void RightSpecial(InputAction.CallbackContext context)
     {
         if (context.canceled) return;
-        print("Right Special input");
-        currentState.RightSpecial(this);
+        print("Right Special input");  
+        if(currentState != currentRightSpecial)
+        {
+            SwitchState(currentRightSpecial);
+        }
+        else
+        {
+            currentState.RightSpecial(this);
+        }
     }
     public void Interact(InputAction.CallbackContext context)
     {
