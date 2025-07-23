@@ -17,6 +17,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerStunned stunState = new PlayerStunned();
     public PlayerGrabbingState grabbingState = new PlayerGrabbingState();
 
+    public PlayerSolarPulseState solarPulseState = new PlayerSolarPulseState();
+
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
     public PlayerEnergy EnergyManager;
@@ -37,6 +39,7 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject RightArmCollider;
     public GameObject AirAttackCollider;
     public GameObject GrappleCollider;
+    public GameObject SolarPulseCollider;
 
     public float extraHearts;
     public float currentHeartAmount;
@@ -62,6 +65,7 @@ public class PlayerStateManager : MonoBehaviour
         
         CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
 
+        currentLeftSpecial = solarPulseState;
     }
     private void Start()
     {

@@ -53,3 +53,7 @@ MonoBehaviour:
   DodgeUnstoppable: 10
   HealthEssenceValue: 4
   EnergyEssenceValue: 4
+  SolarPulseDuration: 0.7
+  SolarPulseStartupEnd: 0.5
+  SolarPulseActionEnd: 0.3
+  SolarPulseEnergyCost: 20
