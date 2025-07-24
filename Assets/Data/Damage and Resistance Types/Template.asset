@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc3b5b8ae1ea0b4d89698c0ac44675c, type: 3}
+  m_Name: Template
+  m_EditorClassIdentifier: 
+  damagePears:
+  - damageType: {fileID: 11400000, guid: 799852f0be7c9c146bb6b1075bb141e2, type: 2}
+    DamageMult: 1
+  - damageType: {fileID: 11400000, guid: fa1e9bbb7e7351543a09cbc6d002d7f1, type: 2}
+    DamageMult: 1
+  - damageType: {fileID: 11400000, guid: 5a7cc57205fdfdd41838d0c3207d858b, type: 2}
+    DamageMult: 1
+  - damageType: {fileID: 11400000, guid: f8e5732a900ff7e49bace00974475a09, type: 2}
+    DamageMult: 1

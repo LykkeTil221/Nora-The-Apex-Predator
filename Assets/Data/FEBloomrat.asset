@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ad759c0734c6c4dae530ca2ab907a5, type: 3}
   m_Name: FEBloomrat
   m_EditorClassIdentifier: 
-  Health: 5
+  Health: 10
   Unstoppable: 0
   StunDuration: 0.5
   IFrameDuration: 0
@@ -24,5 +24,5 @@ MonoBehaviour:
   playerObject: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
   SweetSpotRange: {x: 0, y: 3, z: 10}
   attentionSpan: 5
-  enemySkill: 1
+  enemyMutation: 3
   enemyEssense: 4

@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: FireBall
   attackVariable: {fileID: 11400000, guid: 75cfc26e009bcda42979c1c2035e075d, type: 2}
+  DamageType: {fileID: 11400000, guid: fa1e9bbb7e7351543a09cbc6d002d7f1, type: 2}
 --- !u!114 &8863579019155507394
 MonoBehaviour:
   m_ObjectHideFlags: 0

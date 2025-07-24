@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 [CreateAssetMenu(fileName = "EnemyStats", menuName = "Stats/EnemyStats")]
 public class EnemyVariablesScrub : ScriptableObject
 {
@@ -22,6 +24,7 @@ public class EnemyVariablesScrub : ScriptableObject
     [Header("Unique Properties")]
     public EnemyMutation enemyMutation;
     public EnemyEssense enemyEssense;
+
     public enum EnemyMutation
     {
         None,

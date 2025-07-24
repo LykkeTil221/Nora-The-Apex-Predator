@@ -4,12 +4,15 @@ public class HitBox : MonoBehaviour
 {
     [SerializeField] private string attackName;
     [SerializeField] PlayerAttackVariables attackVariable;
+    [SerializeField] EgenFil DamageType;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Triggered");
         if (other.GetComponent<HurtBox>())
         {
-            other.GetComponent<HurtBox>().TakeDamageFuncion(attackVariable.Attack[attackName].x, attackVariable.Attack[attackName].y, attackName);
+            float damageMultiplier = 1f;
+            if (other.GetComponent<HurtBox>().ResistanceType != null) damageMultiplier = other.GetComponent<HurtBox>().ResistanceType.GetResistance(DamageType);
+            other.GetComponent<HurtBox>().TakeDamageFuncion(attackVariable.Attack[attackName].x * damageMultiplier, attackVariable.Attack[attackName].y, attackName);
         }        
     }
 }

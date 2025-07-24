@@ -169,6 +169,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ResistanceType: {fileID: 11400000, guid: 04738db35719be84081c0eae256fcdfb, type: 2}
 --- !u!1 &5480016835936891443
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +254,7 @@ MonoBehaviour:
   PlayerIsDetected: 0
   currentHealth: 0
   ExplamationMark: {fileID: 2318947566768535112}
+  currentAttack: 0
 --- !u!114 &506111301553445565
 MonoBehaviour:
   m_ObjectHideFlags: 0

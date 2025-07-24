@@ -11,21 +11,29 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyStunnedState StunnedState = new EnemyStunnedState();
     public EnemyGrabbedState GrabbedState = new EnemyGrabbedState();
 
+    public EnemyBaseState[] Attacks;
+    public EnemyBaseState currentAttackState;
+
     public Rigidbody Rigidbody;
     public EnemyVariablesScrub EnemyStats;
 
     public bool PlayerIsDetected;
 
     public float currentHealth;
+    
     //public PlayerGroundedState groundedState = new PlayerGroundedState();
 
     public GameObject ExplamationMark;
+    public int currentAttack = 0;
+    private void Awake()
+    {
+        //currentAttackState = Attacks[currentAttack];
+    }
     private void Start()
     {
         currentState = GroundedState;
-        currentState.EnterState(this);
-
         currentHealth = EnemyStats.Health;
+        currentState.EnterState(this);
     }
 
     private void Update()
@@ -64,5 +72,12 @@ public class EnemyStateManager : MonoBehaviour
         {
             SwitchState(AirborneState);
         }
+    }
+
+    public void PerformNextAttack()
+    {
+        currentAttackState = Attacks[currentAttack];
+        currentAttack += 1;
+        if (currentAttack > Attacks.Length) currentAttack = 0;
     }
 }
