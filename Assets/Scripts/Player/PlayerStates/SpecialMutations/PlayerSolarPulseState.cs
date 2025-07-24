@@ -45,6 +45,15 @@ public class PlayerSolarPulseState : PlayerBaseState
                 hasSpentEnergy = true;
             }
         }
+
+        if (Player.IsGrounded)
+        {
+            Player.Rigidbody.linearDamping = Player.PlayerVars.GroundDrag;
+        }
+        else
+        {
+            Player.Rigidbody.linearDamping = Player.PlayerVars.AirDrag;
+        }
         
     }
 
