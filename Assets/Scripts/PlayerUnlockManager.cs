@@ -6,7 +6,8 @@ public class PlayerUnlockManager : MonoBehaviour
     public int HealthEssenceAmount;
     public int EnergyEssenseAmount;
     [SerializeField] UIHeartManager uiHeartManager;
-
+    public bool unlockedFireBall;
+    public bool unlockedSolarPulse;
     public void CollectEssence(bool isHealthEssense, int collectedEssense)
     {
         if (isHealthEssense)
@@ -40,5 +41,17 @@ public class PlayerUnlockManager : MonoBehaviour
         Player.SetMaxHealth();
         uiHeartManager.DrawHearts();
         uiHeartManager.UpdateHearts();
+    }
+
+    public void UnlockSolarPulse()
+    {
+        unlockedSolarPulse = true;
+        Player.currentLeftSpecial = Player.solarPulseState;
+    }
+
+    public void UnlockFireBall()
+    {
+        Player.currentRightSpecial = Player.fireBallState;
+        unlockedFireBall = true;
     }
 }

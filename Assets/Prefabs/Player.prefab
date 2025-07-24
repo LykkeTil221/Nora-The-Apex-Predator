@@ -763,11 +763,13 @@ MonoBehaviour:
   AirAttackCollider: {fileID: 6679670085269585772}
   GrappleCollider: {fileID: 0}
   SolarPulseCollider: {fileID: 9029481409616255552}
+  FireBall: {fileID: 0}
   extraHearts: 0
   currentHeartAmount: 0
   CurrentMaxHealth: 0
   CurrentPlayerHealth: 0
   CurrentPlayerUnstoppable: 0
+  projectileThrowPoint: {fileID: 0}
   PlayerReference: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
   PlayerGrappleArmRigidBody: {fileID: 0}
   Attacks: {fileID: 11400000, guid: 75cfc26e009bcda42979c1c2035e075d, type: 2}
@@ -818,7 +820,7 @@ MonoBehaviour:
   GCPositionModifier: 0
   isGroundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 257
   maxDistanceForGroundCheck: 0.2
 --- !u!114 &954560257316998923
 MonoBehaviour:

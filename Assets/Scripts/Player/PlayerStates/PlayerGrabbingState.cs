@@ -175,6 +175,16 @@ public class PlayerGrabbingState : PlayerBaseState
             {
                 Player.unlockManager.CollectEssence(false, 4);
             }
+            if(Enemy.EnemyStats.enemyMutation == EnemyVariablesScrub.EnemyMutation.SolarPulse)
+            {
+                Debug.Log("Consumed enemy with Solar Pulse");
+                Player.unlockManager.UnlockSolarPulse();
+            }
+            if (Enemy.EnemyStats.enemyMutation == EnemyVariablesScrub.EnemyMutation.Fireball)
+            {
+                Debug.Log("Consumed enemy with FireBall");
+                Player.unlockManager.UnlockFireBall();
+            }
         }
         if (HasGrabbedObject)
         {

@@ -38,7 +38,15 @@ public class PlayerEnergy : MonoBehaviour
         {
             Wheel2.SetActive(false);
         }
+        else
+        {
+            Wheel2.SetActive(true);
+        }
         if (MaxPlayerEnergy <= Wheel3Min)
+        {
+            Wheel3.SetActive(false);
+        }
+        else
         {
             Wheel3.SetActive(false);
         }

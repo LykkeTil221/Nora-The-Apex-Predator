@@ -69,8 +69,8 @@ public class PlayerStateManager : MonoBehaviour
         
         CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
 
-        currentLeftSpecial = solarPulseState;
-        currentRightSpecial = fireBallState;
+        //currentLeftSpecial = solarPulseState;
+        //currentRightSpecial = fireBallState;
     }
     private void Start()
     {
@@ -178,6 +178,7 @@ public class PlayerStateManager : MonoBehaviour
     public void LeftSpecial(InputAction.CallbackContext context)
     {
         if (context.canceled) return;
+        if (currentLeftSpecial == null) return;
         print("LeftSpecial input");
         if (currentState == groundedState || currentState == airborneState)
         {
@@ -191,6 +192,7 @@ public class PlayerStateManager : MonoBehaviour
     public void RightSpecial(InputAction.CallbackContext context)
     {
         if (context.canceled) return;
+        if (currentRightSpecial == null) return;
         print("Right Special input");
         if (currentState == groundedState || currentState == airborneState)
         {
