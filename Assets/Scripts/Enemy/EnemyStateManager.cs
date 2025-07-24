@@ -76,7 +76,7 @@ public class EnemyStateManager : MonoBehaviour
 
     public void PerformNextAttack()
     {
-        currentAttackState = Attacks[currentAttack];
+        currentAttackState = Attacks[currentAttack]; 
         currentAttack += 1;
         if (currentAttack > Attacks.Length) currentAttack = 0;
     }

@@ -86,7 +86,11 @@ public class PlayerGrabbingState : PlayerBaseState
         {
             Debug.Log("LeftAbsorb");
             leftTimer = Player.PlayerVars.AbsorbAttackDuration;
-            if (Enemy != null) Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            if (Enemy != null)
+            {
+                Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            }
+            
             if (Object != null) Object.gameObject.GetComponent<LockDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
         }
     }

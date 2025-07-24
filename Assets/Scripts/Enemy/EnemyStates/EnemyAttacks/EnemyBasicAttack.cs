@@ -4,7 +4,7 @@ public class EnemyBasicAttack : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager Enemy)
     {
-        Debug.Log("Enemy entered basic attack state");
+        Debug.Log("Enemy entered basic attack state ??");
     }
 
     public override void FixedUpdate(EnemyStateManager Enemy)
