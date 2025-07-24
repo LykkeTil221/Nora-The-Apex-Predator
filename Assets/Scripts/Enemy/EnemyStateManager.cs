@@ -5,13 +5,13 @@ public class EnemyStateManager : MonoBehaviour
     EnemyBaseState currentState;
     public bool IsGrounded;
 
-    public EnemyGroundedState GroundedState = new EnemyGroundedState();
-    public EnemyAirborneState AirborneState = new EnemyAirborneState();
-    public EnemyDetectPlayerState DetectState = new EnemyDetectPlayerState();
-    public EnemyStunnedState StunnedState = new EnemyStunnedState();
-    public EnemyGrabbedState GrabbedState = new EnemyGrabbedState();
+    public EnemyGroundedState GroundedState;
+    public EnemyAirborneState AirborneState;
+    public EnemyDetectPlayerState DetectState;
+    public EnemyStunnedState StunnedState;
+    public EnemyGrabbedState GrabbedState;
 
-    public EnemyBaseState[] Attacks;
+    [SerializeField] public EnemyBaseState[] Attacks;
     public EnemyBaseState currentAttackState;
 
     public Rigidbody Rigidbody;
@@ -27,7 +27,7 @@ public class EnemyStateManager : MonoBehaviour
     public int currentAttack = 0;
     private void Awake()
     {
-        //currentAttackState = Attacks[currentAttack];
+        currentAttackState = Attacks[currentAttack];
     }
     private void Start()
     {
@@ -77,6 +77,7 @@ public class EnemyStateManager : MonoBehaviour
     public void PerformNextAttack()
     {
         currentAttackState = Attacks[currentAttack]; 
+        SwitchState(currentAttackState);
         currentAttack += 1;
         if (currentAttack > Attacks.Length) currentAttack = 0;
     }

@@ -249,6 +249,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsGrounded: 0
+  GroundedState: {fileID: 11400000, guid: 1e25688b5b9aa0249aa070dd6f004a79, type: 2}
+  AirborneState: {fileID: 11400000, guid: d98c72cc2b0e2c2498f45543a65928d7, type: 2}
+  DetectState: {fileID: 11400000, guid: 91dbe1a3872b9b049b2250a72fd4c61f, type: 2}
+  StunnedState: {fileID: 11400000, guid: aa8a51c608c34984ea090b75d9405d51, type: 2}
+  GrabbedState: {fileID: 11400000, guid: 1fa44f770164a11418832cbf6f2a9021, type: 2}
+  Attacks:
+  - {fileID: 11400000, guid: 580506cd13ba3114bb004fab4613fe4d, type: 2}
+  currentAttackState: {fileID: 0}
   Rigidbody: {fileID: 8671263288481654802}
   EnemyStats: {fileID: 11400000, guid: 9f36305049fb76647b87e46358d51e40, type: 2}
   PlayerIsDetected: 0

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "EnemyStunnedState", menuName = "EnemyStates/StunnedState")]
 public class EnemyStunnedState : EnemyBaseState
 {
     private float timer;

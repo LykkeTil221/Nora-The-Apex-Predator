@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "EnemyGrabbedState", menuName = "EnemyStates/Grabbed")]
 public class EnemyGrabbedState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager Enemy)

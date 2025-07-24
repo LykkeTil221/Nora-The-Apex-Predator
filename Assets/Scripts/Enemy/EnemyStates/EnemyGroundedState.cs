@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "EnemyGroundedState", menuName = "EnemyStates/GroundedState")]
 public class EnemyGroundedState : EnemyBaseState
 {
 

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "EnemyDetectPlayer", menuName = "EnemyStates/DetectState")]
 public class EnemyDetectPlayerState : EnemyBaseState
 {
     private float timer;
