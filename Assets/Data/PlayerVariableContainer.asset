@@ -57,3 +57,8 @@ MonoBehaviour:
   SolarPulseStartupEnd: 0.5
   SolarPulseActionEnd: 0.3
   SolarPulseEnergyCost: 20
+  FireBallDuration: 0.3
+  FireBallStartUpEnd: 0.28
+  FireBallActionEnd: 0.2
+  FireBallEnergyCost: 25
+  FireBallLaunchForce: 100

@@ -56,9 +56,15 @@ public class PlayerVariableContainer : ScriptableObject
     [Header("EssenseValue")]
     public int HealthEssenceValue;
     public int EnergyEssenceValue;
-    [Header("SolarPulseValues")]
+    [Header("SolarPulseVariables")]
     public float SolarPulseDuration;
     public float SolarPulseStartupEnd;
     public float SolarPulseActionEnd;
     public float SolarPulseEnergyCost;
-}
+    [Header("FireBallVariables")]
+    public float FireBallDuration;
+    public float FireBallStartUpEnd;
+    public float FireBallActionEnd;
+    public float FireBallEnergyCost;
+    public float FireBallLaunchForce;
+    }

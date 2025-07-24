@@ -1,24 +1,25 @@
 using UnityEngine;
-
-public class PlayerSolarPulseState : PlayerBaseState
+using Unity.Collections;
+public class PlayerFireBall : PlayerBaseState
 {
     private float timer;
     private bool hasSpentEnergy;
+    private bool hasShotBall;
     public override void EnterState(PlayerStateManager Player)
     {
-        if(Player.EnergyManager.CurrentPlayerEnergy < Player.PlayerVars.SolarPulseEnergyCost)
+        if (Player.EnergyManager.CurrentPlayerEnergy < Player.PlayerVars.FireBallEnergyCost)
         {
             Player.SwitchToNeutralState();
-            Debug.Log("Not enough energy for Solar Pulse");
+            Debug.Log("Not enough energy for FireBall");
         }
         else
         {
-            //Do the thing
-            Debug.Log("Doing Solar Pulse");
-            timer = Player.PlayerVars.SolarPulseDuration;
+            Debug.Log("Doing FireBal");
+            timer = Player.PlayerVars.FireBallDuration;
             Player.ChangePlayerMaterial(1);
-            
         }
+
+            
     }
 
 
@@ -26,26 +27,31 @@ public class PlayerSolarPulseState : PlayerBaseState
     {
         timer -= Time.deltaTime;
 
-        if(timer <= 0)
+        if( timer is <= 0)
         {
             CancelState(Player, true);
         }
-        else if (timer <= Player.PlayerVars.SolarPulseActionEnd)
+        else if(timer <= Player.PlayerVars.FireBallActionEnd)
         {
             Player.ChangePlayerMaterial(3);
-            Player.SolarPulseCollider.SetActive(false);
         }
-        else if (timer <= Player.PlayerVars.SolarPulseStartupEnd)
+        else if(timer <= Player.PlayerVars.FireBallStartUpEnd)
         {
             Player.ChangePlayerMaterial(2);
-            Player.SolarPulseCollider.SetActive(true);
             if (!hasSpentEnergy)
             {
-                Player.EnergyManager.SpendEnergy(Player.PlayerVars.SolarPulseEnergyCost);
+                Player.EnergyManager.SpendEnergy(Player.PlayerVars.FireBallEnergyCost);
                 hasSpentEnergy = true;
             }
+            
+            if (!hasShotBall)
+            {
+                GameObject fireBall = Object.Instantiate(Player.FireBall, Player.projectileThrowPoint.transform.position, Player.projectileThrowPoint.transform.rotation);
+                fireBall.GetComponent<Rigidbody>().AddForce(fireBall.transform.forward * Player.PlayerVars.FireBallLaunchForce);
+                hasShotBall = true;
+            }
+            
         }
-        
     }
 
     public override void FixedUpdateState(PlayerStateManager Player)
@@ -59,7 +65,7 @@ public class PlayerSolarPulseState : PlayerBaseState
     }
     public override void Dodge(PlayerStateManager Player)
     {
-        if (timer > Player.PlayerVars.SolarPulseStartupEnd)
+        if (timer > Player.PlayerVars.FireBallStartUpEnd)
         {
             CancelState(Player, false);
             Player.SwitchState(Player.dodgeState);
@@ -96,21 +102,20 @@ public class PlayerSolarPulseState : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
-        if(timer > Player.PlayerVars.SolarPulseStartupEnd) CancelState(Player, true);
-
+        if(timer > Player.PlayerVars.FireBallStartUpEnd)
+        {
+            CancelState(Player, true);
+        }
     }
     public override void Stun(PlayerStateManager Player)
     {
         CancelState(Player, true);
     }
-
-    private void CancelState(PlayerStateManager Player, bool SwitchState)
+    private void CancelState(PlayerStateManager Player, bool changeState)
     {
         Player.ChangePlayerMaterial(0);
-        
-        timer = 0;
-        Player.SolarPulseCollider.SetActive(false);
         hasSpentEnergy = false;
-        if(SwitchState) Player.SwitchToNeutralState();
+        if (changeState) Player.SwitchToNeutralState();
+        hasShotBall = false;
     }
 }

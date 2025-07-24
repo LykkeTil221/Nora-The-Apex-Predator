@@ -18,6 +18,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerGrabbingState grabbingState = new PlayerGrabbingState();
 
     public PlayerSolarPulseState solarPulseState = new PlayerSolarPulseState();
+    public PlayerFireBall fireBallState = new PlayerFireBall();
 
     public Rigidbody Rigidbody;
     public bool IsGrounded = true;
@@ -40,12 +41,15 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject AirAttackCollider;
     public GameObject GrappleCollider;
     public GameObject SolarPulseCollider;
+    public GameObject FireBall;
 
     public float extraHearts;
     public float currentHeartAmount;
     public float CurrentMaxHealth;
     public float CurrentPlayerHealth;
     public float CurrentPlayerUnstoppable;
+
+    public Transform projectileThrowPoint;
 
     [SerializeField] GameObjectScrub PlayerReference;
 
@@ -66,6 +70,7 @@ public class PlayerStateManager : MonoBehaviour
         CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
 
         currentLeftSpecial = solarPulseState;
+        currentRightSpecial = fireBallState;
     }
     private void Start()
     {
@@ -174,11 +179,11 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (context.canceled) return;
         print("LeftSpecial input");
-        if (currentState != currentLeftSpecial)
+        if (currentState == groundedState || currentState == airborneState)
         {
             SwitchState(currentLeftSpecial);
         }
-        else
+        else if ( currentState == currentLeftSpecial)
         {
             currentState.LeftSpecial(this);
         }
@@ -186,12 +191,12 @@ public class PlayerStateManager : MonoBehaviour
     public void RightSpecial(InputAction.CallbackContext context)
     {
         if (context.canceled) return;
-        print("Right Special input");  
-        if(currentState != currentRightSpecial)
+        print("Right Special input");
+        if (currentState == groundedState || currentState == airborneState)
         {
             SwitchState(currentRightSpecial);
         }
-        else
+        else if ( currentState == currentRightSpecial)
         {
             currentState.RightSpecial(this);
         }
