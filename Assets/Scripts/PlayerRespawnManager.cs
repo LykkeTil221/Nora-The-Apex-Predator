@@ -20,5 +20,6 @@ public class PlayerRespawnManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         player.gameObject.SetActive(true);
         RespawnPlayer.Invoke();
+        PlayerCheckPoint.RespawnEnemies.Invoke();
     }
 }
