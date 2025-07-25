@@ -25,6 +25,8 @@ public class EnemyStateManager : MonoBehaviour
 
     public GameObject ExplamationMark;
     public int currentAttack = 0;
+
+    public GameObject AttackCollider;
     private void Awake()
     {
         currentAttackState = Attacks[currentAttack];
@@ -79,6 +81,6 @@ public class EnemyStateManager : MonoBehaviour
         currentAttackState = Attacks[currentAttack]; 
         SwitchState(currentAttackState);
         currentAttack += 1;
-        if (currentAttack > Attacks.Length) currentAttack = 0;
+        if (currentAttack >= Attacks.Length) currentAttack = 0;
     }
 }

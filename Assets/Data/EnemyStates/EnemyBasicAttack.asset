@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d3611df02819d4d8f70ec435826a0d, type: 3}
   m_Name: EnemyBasicAttack
   m_EditorClassIdentifier: 
+  AttackDuration: 1
+  AttackStartupEnd: 0.5
+  AttackActionEnd: 0.2

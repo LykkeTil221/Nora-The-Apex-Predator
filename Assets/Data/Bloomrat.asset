@@ -22,7 +22,7 @@ MonoBehaviour:
   GroundDrag: 30
   AirDrag: 0
   playerObject: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
-  SweetSpotRange: {x: 0, y: 3, z: 10}
+  SweetSpotRange: {x: 0, y: 1.5, z: 10}
   attentionSpan: 5
-  enemySkill: 1
+  enemyMutation: 1
   enemyEssense: 0
