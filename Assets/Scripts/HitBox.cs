@@ -13,6 +13,10 @@ public class HitBox : MonoBehaviour
             float damageMultiplier = 1f;
             if (other.GetComponent<HurtBox>().ResistanceType != null) damageMultiplier = other.GetComponent<HurtBox>().ResistanceType.GetResistance(DamageType);
             other.GetComponent<HurtBox>().TakeDamageFuncion(attackVariable.Attack[attackName].x * damageMultiplier, attackVariable.Attack[attackName].y, attackName);
-        }        
+        }
+        if (other.GetComponent<PlayerCheckPoint>())
+        {
+            other.GetComponent<PlayerCheckPoint>().ActivateCheckPoint();
+        }
     }
 }

@@ -6,7 +6,7 @@ public class EnemyDetectPlayerState : EnemyBaseState
     private float exclamTime = 0.5f;
     public override void EnterState(EnemyStateManager Enemy)
     {
-        Enemy.ExplamationMark.SetActive(true);
+        Enemy.ExclamationMark.SetActive(true);
         timer = exclamTime;
     }
 
@@ -30,7 +30,7 @@ public class EnemyDetectPlayerState : EnemyBaseState
         timer -= Time.deltaTime;
         if(timer < 0)
         {
-            Enemy.ExplamationMark.SetActive(false);
+            Enemy.ExclamationMark.SetActive(false);
             Enemy.SwitchToNeutralState();
         }
 

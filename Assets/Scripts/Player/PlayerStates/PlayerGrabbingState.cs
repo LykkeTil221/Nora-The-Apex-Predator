@@ -16,6 +16,8 @@ public class PlayerGrabbingState : PlayerBaseState
             Player.grappleState.hasGrabbedEnemy = false;
             Player.GrappleCollider.transform.position = Enemy.transform.position;
             Enemy.Rigidbody.isKinematic = true;
+            Debug.Log("Grabbed Enemy");
+            Debug.Log(Enemy);
         }
         if(Object != null)
         {
@@ -34,6 +36,7 @@ public class PlayerGrabbingState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager Player)
     {
+        Debug.Log(Enemy);
         if (Player.IsGrounded)
         {
             Player.Rigidbody.linearDamping = Player.PlayerVars.GroundDrag;
@@ -46,12 +49,14 @@ public class PlayerGrabbingState : PlayerBaseState
         if (leftTimer > 0) leftTimer -= Time.deltaTime;
         if (rightTimer > 0) rightTimer -= Time.deltaTime;
 
-        if (HasGrabbedEnemy && !Enemy)
+        if (HasGrabbedEnemy && !Enemy.gameObject.activeSelf)
         {
+            Debug.Log("Consumed Enemy");
             Consume(Player);
         }
         if(HasGrabbedObject && !Object)
         {
+            Debug.Log("Consumed Object");
             Consume(Player);
         }
     }
@@ -152,8 +157,9 @@ public class PlayerGrabbingState : PlayerBaseState
         HasGrabbedEnemy = false;
     }
 
-    private void Consume(PlayerStateManager Player)
+    public void Consume(PlayerStateManager Player)
     {
+        Debug.Log("Consume");
         if (HasGrabbedEnemy)
         {
             Player.EnergyManager.MaxGainEnergy();

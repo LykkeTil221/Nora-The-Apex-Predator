@@ -19,7 +19,7 @@ MonoBehaviour:
   stunDuration: 0.15
   IFrames: 0.6
   PlayerEnergy: 100
-  PlayerEnergyGainMMultiplier: 5
+  PlayerEnergyGainMMultiplier: 10
   TimeUntilEnergyRecovery: 1
   ExtraEnergyPerUpgrade: 25
   PunchDuration: 0.55
@@ -57,9 +57,9 @@ MonoBehaviour:
   SolarPulseDuration: 0.7
   SolarPulseStartupEnd: 0.5
   SolarPulseActionEnd: 0.3
-  SolarPulseEnergyCost: 20
+  SolarPulseEnergyCost: 40
   FireBallDuration: 0.3
   FireBallStartUpEnd: 0.28
   FireBallActionEnd: 0.2
-  FireBallEnergyCost: 25
+  FireBallEnergyCost: 30
   FireBallLaunchForce: 100

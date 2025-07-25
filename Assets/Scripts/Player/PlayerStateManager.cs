@@ -243,6 +243,10 @@ public class PlayerStateManager : MonoBehaviour
         Debug.Log(grabbedObject + " is grabbed");
         grappleState.ObjectIsGrabbed(grabbedObject);
     }
+    public void GrabbedbjectIsDefeated()
+    {
+       // grabbingState.con
+    }
     public void PlayerStunned()
     {
         currentState.Cancel(this);

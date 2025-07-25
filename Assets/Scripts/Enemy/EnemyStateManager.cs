@@ -23,7 +23,7 @@ public class EnemyStateManager : MonoBehaviour
     
     //public PlayerGroundedState groundedState = new PlayerGroundedState();
 
-    public GameObject ExplamationMark;
+    public GameObject ExclamationMark;
     public int currentAttack = 0;
 
     public GameObject AttackCollider;
@@ -31,6 +31,9 @@ public class EnemyStateManager : MonoBehaviour
     public Transform projectileThrowPoint;
 
     public float timeBetweenAttacks;
+
+    [HideInInspector]public EnemySpawner spawner;
+    public bool isGrabbed;
     private void Awake()
     {
         currentAttackState = Attacks[currentAttack];
@@ -91,5 +94,11 @@ public class EnemyStateManager : MonoBehaviour
         SwitchState(currentAttackState);
         currentAttack += 1;
         if (currentAttack >= Attacks.Length) currentAttack = 0;
+    }
+
+    public void OnEnemyDeath()
+    {
+        spawner.KillEnemy();
+        
     }
 }

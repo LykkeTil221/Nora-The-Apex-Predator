@@ -12,7 +12,7 @@ public class EnemyDamageManager : MonoBehaviour
         }
         if(Enemy.currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Enemy.OnEnemyDeath();
         }
     }
 }
