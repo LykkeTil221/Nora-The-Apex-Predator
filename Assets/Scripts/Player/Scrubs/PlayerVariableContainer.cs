@@ -41,6 +41,7 @@ public class PlayerVariableContainer : ScriptableObject
     [Header("Air attack variables")]
     public float AirAttackJumpStrength;
     public float AirAttackEndDuration;
+    public float AirAttackActionEnd;
     public float AirAttackTimeBeforeSlamDown;
     public float AirAttackDownSpeed;
     [Header("Move variables")]

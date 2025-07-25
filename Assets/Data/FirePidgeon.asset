@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ad759c0734c6c4dae530ca2ab907a5, type: 3}
+  m_Name: FirePidgeon
+  m_EditorClassIdentifier: 
+  Health: 5
+  Unstoppable: 0
+  StunDuration: 0.5
+  IFrameDuration: 0
+  MoveSpeed: 500
+  RotateSpeed: 5
+  DetectRotateSpeed: 30
+  GroundDrag: 30
+  AirDrag: 0
+  playerObject: {fileID: 11400000, guid: f0fca69e7d20b9447b47c26641e10914, type: 2}
+  SweetSpotRange: {x: 8, y: 20, z: 20}
+  attentionSpan: 5
+  enemyMutation: 3
+  enemyEssense: 0

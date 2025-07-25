@@ -27,6 +27,10 @@ public class EnemyStateManager : MonoBehaviour
     public int currentAttack = 0;
 
     public GameObject AttackCollider;
+
+    public Transform projectileThrowPoint;
+
+    public float timeBetweenAttacks;
     private void Awake()
     {
         currentAttackState = Attacks[currentAttack];
@@ -41,6 +45,10 @@ public class EnemyStateManager : MonoBehaviour
     private void Update()
     {
         currentState.Update(this);
+        if(timeBetweenAttacks >= 0)
+        {
+            timeBetweenAttacks -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -78,6 +86,7 @@ public class EnemyStateManager : MonoBehaviour
 
     public void PerformNextAttack()
     {
+        if (timeBetweenAttacks > 0) return;
         currentAttackState = Attacks[currentAttack]; 
         SwitchState(currentAttackState);
         currentAttack += 1;

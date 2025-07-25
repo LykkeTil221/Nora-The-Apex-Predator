@@ -37,6 +37,10 @@ public class PlayerAttackAirState : PlayerBaseState
                 Player.SwitchToNeutralState();
                 Player.ChangePlayerMaterial(0);
             }
+            else if(timer <= Player.PlayerVars.AirAttackActionEnd)
+            {
+                Player.AirAttackCollider.SetActive(false);
+            }
         }
         else
         {

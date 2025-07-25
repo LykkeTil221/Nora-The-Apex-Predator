@@ -42,6 +42,7 @@ MonoBehaviour:
   JumpStrength: 200
   AirAttackJumpStrength: 50
   AirAttackEndDuration: 0.5
+  AirAttackActionEnd: 0.4
   AirAttackTimeBeforeSlamDown: 0.35
   AirAttackDownSpeed: 100
   MoveSpeed: 125
