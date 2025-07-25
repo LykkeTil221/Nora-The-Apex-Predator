@@ -63,6 +63,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public PlayerBaseState currentLeftSpecial;
     public PlayerBaseState currentRightSpecial;
+
+    public Transform currentSpawnPosition;
     private void Awake()
     {
         SetMaxHealth();
@@ -71,6 +73,9 @@ public class PlayerStateManager : MonoBehaviour
 
         //currentLeftSpecial = solarPulseState;
         //currentRightSpecial = fireBallState;
+
+        PlayerCheckPoint.setCheckpoint += SetCheckpoint;
+        PlayerRespawnManager.RespawnPlayer += OnPlayerRespawn;
     }
     private void Start()
     {
@@ -258,5 +263,21 @@ public class PlayerStateManager : MonoBehaviour
         currentHeartAmount = PlayerVars.PlayerStartingHearts + extraHearts;
         CurrentMaxHealth = currentHeartAmount * PlayerVars.HeartValue;
         CurrentPlayerHealth = CurrentMaxHealth;
+    }
+
+    private void SetCheckpoint(Transform spawnpoint)
+    {
+        currentSpawnPosition = spawnpoint;
+    }
+
+    public void OnPlayerRespawn()
+    {
+        SetMaxHealth();
+        CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
+        CurrentPlayerHealth = PlayerVars.PlayerStartingHearts * PlayerVars.HeartValue;
+        CurrentPlayerUnstoppable = PlayerVars.Unstoppable;
+        gameObject.transform.position = currentSpawnPosition.transform.position;
+        gameObject.transform.rotation = currentSpawnPosition.transform.rotation;
+        SwitchToNeutralState();
     }
 }

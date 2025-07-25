@@ -7,6 +7,8 @@ public class PlayerDamageManager : MonoBehaviour
     [SerializeField] private float timer;
     [SerializeField] UIHeartManager heartManager;
 
+    public delegate void GameOver(PlayerStateManager player);
+    public static GameOver gameOver;
     public void TakeDamage(float damage, float stun, string attackID)
     {
         if (timer > 0) return;        
@@ -22,8 +24,8 @@ public class PlayerDamageManager : MonoBehaviour
         if(Player.CurrentPlayerHealth <= 0)
         {
             Debug.Log("Player is defeated");
-            //Midlertidig
-            SceneManager.LoadScene(0);
+            gameOver.Invoke(Player);
+            Player.gameObject.SetActive(false);
         }
         heartManager.UpdateHearts();
     }
