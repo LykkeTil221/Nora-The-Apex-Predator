@@ -8,6 +8,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1336764600105191261, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0069814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336764600105191261, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Center.x
+      value: -7.818503e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336764600105191261, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Center.y
+      value: 0.0034907411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336764600105191261, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Center.z
+      value: 6.761227e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407468395833300717, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0298549
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407468395833300717, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Center.x
+      value: -2.8166786e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407468395833300717, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Center.y
+      value: 0.01492825
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407468395833300717, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Center.z
+      value: -1.7543886e-12
+      objectReference: {fileID: 0}
     - target: {fileID: 2269579625439337556, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -49,6 +81,10 @@ PrefabInstance:
       value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2958777168703569249, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958777168703569249, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: cdbd245857125bf4aa3dd53f7adbd8b9, type: 2}
@@ -63,6 +99,10 @@ PrefabInstance:
     - target: {fileID: 7998438899357568932, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
       propertyPath: 'AcceptableAttacks.Array.data[0]'
       value: FireBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140166217912965840, guid: 6888abe2d0bcc0f4dbf85cacad9e27c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
