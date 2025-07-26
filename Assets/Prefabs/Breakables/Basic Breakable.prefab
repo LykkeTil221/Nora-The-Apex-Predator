@@ -5052,7 +5052,7 @@ GameObject:
   - component: {fileID: 7998438899357568932}
   - component: {fileID: 2506017131671982356}
   m_Layer: 8
-  m_Name: "L\xE5s"
+  m_Name: Basic Breakable
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

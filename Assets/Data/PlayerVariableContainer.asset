@@ -22,9 +22,9 @@ MonoBehaviour:
   PlayerEnergyGainMMultiplier: 10
   TimeUntilEnergyRecovery: 1
   ExtraEnergyPerUpgrade: 25
-  PunchDuration: 0.55
-  PunchActionEnd: 0.3
-  PunchStartupEnd: 0.4
+  PunchDuration: 0.35
+  PunchActionEnd: 0.2
+  PunchStartupEnd: 0.3
   PunchForwardSpeed: 40
   DodgeLungeForce: 550
   DodgeActionEnd: 0.3
@@ -41,9 +41,9 @@ MonoBehaviour:
   absorbedHealthDivider: 2
   JumpStrength: 200
   AirAttackJumpStrength: 50
-  AirAttackEndDuration: 0.5
-  AirAttackActionEnd: 0.4
-  AirAttackTimeBeforeSlamDown: 0.35
+  AirAttackEndDuration: 0.3
+  AirAttackActionEnd: 0.2
+  AirAttackTimeBeforeSlamDown: 0.25
   AirAttackDownSpeed: 100
   MoveSpeed: 125
   MaxMoveSpeed: 125
@@ -54,8 +54,8 @@ MonoBehaviour:
   DodgeUnstoppable: 10
   HealthEssenceValue: 4
   EnergyEssenceValue: 4
-  SolarPulseDuration: 0.7
-  SolarPulseStartupEnd: 0.5
+  SolarPulseDuration: 0.55
+  SolarPulseStartupEnd: 0.4
   SolarPulseActionEnd: 0.3
   SolarPulseEnergyCost: 40
   FireBallDuration: 0.3

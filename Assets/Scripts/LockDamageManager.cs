@@ -27,7 +27,7 @@ public class LockDamageManager : MonoBehaviour
         {
             if (AcceptableAttacks.Contains(attackID))
             {
-                
+                ObjectIsHit();
                 Health -= damage;
                 if (Health <= 0)
                 {
@@ -41,10 +41,7 @@ public class LockDamageManager : MonoBehaviour
         }
         else
         {
-            animator.playbackTime = 0;
-            animator.Play("CrystalIdle");
-            animator.Play("CrystalHit");
-            hitParticle.Emit(HitParticleAmount);
+            ObjectIsHit();
             Health -= damage;
             if (Health <= 0)
             {
@@ -52,6 +49,13 @@ public class LockDamageManager : MonoBehaviour
             }
         }
         
+    }
+    private void ObjectIsHit()
+    {
+        animator.playbackTime = 0;
+        animator.Play("CrystalIdle");
+        animator.Play("CrystalHit");
+        hitParticle.Emit(HitParticleAmount);
     }
 
     private void DestroyObject()
