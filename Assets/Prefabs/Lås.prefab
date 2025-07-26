@@ -5171,6 +5171,8 @@ MonoBehaviour:
   visual: {fileID: 8140166217912965840}
   PhysicsCollider: {fileID: 1336764600105191261}
   DeathTime: 5
+  HitParticleAmount: 10
+  DestroyedParticleAmount: 30
 --- !u!95 &2506017131671982356
 Animator:
   serializedVersion: 7

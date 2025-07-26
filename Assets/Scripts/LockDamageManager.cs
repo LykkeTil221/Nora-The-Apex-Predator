@@ -17,6 +17,9 @@ public class LockDamageManager : MonoBehaviour
 
     float timer;
     [SerializeField] private float DeathTime = 1;
+
+    [SerializeField] private int HitParticleAmount;
+    [SerializeField] private int DestroyedParticleAmount;
     public void TakeDamage(float damage, float stun, string attackID)
     {
         if (isDestroyed) return;
@@ -41,8 +44,7 @@ public class LockDamageManager : MonoBehaviour
             animator.playbackTime = 0;
             animator.Play("CrystalIdle");
             animator.Play("CrystalHit");
-            hitParticle.time = 0;
-            hitParticle.Play();
+            hitParticle.Emit(HitParticleAmount);
             Health -= damage;
             if (Health <= 0)
             {
@@ -56,7 +58,7 @@ public class LockDamageManager : MonoBehaviour
     {
         isDestroyed = true;
         visual.SetActive(false);
-        hitParticle.Emit(30);
+        hitParticle.Emit(DestroyedParticleAmount);
         timer = DeathTime;
         PhysicsCollider.enabled = false;
     }
