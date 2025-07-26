@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 8231452294807208513}
+  Name: Insert Name Here
+  seconds: 4
 --- !u!1 &7441055267222530636
 GameObject:
   m_ObjectHideFlags: 0
