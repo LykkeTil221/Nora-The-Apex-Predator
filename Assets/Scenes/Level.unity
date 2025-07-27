@@ -7125,15 +7125,15 @@ PrefabInstance:
       objectReference: {fileID: 8536472792119321745, guid: 4579227d31299544eaeaf03d047605d4, type: 3}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39264965
+      value: 0.05322365
       objectReference: {fileID: 0}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39264965
+      value: 0.05322365
       objectReference: {fileID: 0}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39264962
+      value: 0.05322364
       objectReference: {fileID: 0}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7141,11 +7141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.089
+      value: -0.088999994
       objectReference: {fileID: 0}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.346
+      value: -0.3459999
       objectReference: {fileID: 0}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7173,6 +7173,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980825268454933192, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8272298372920079704, guid: 57bd3df58218bd14a9b22e4797d4f293, type: 3}
@@ -64009,6 +64013,105 @@ MonoBehaviour:
   UIEnergyBorder: {fileID: 1005181487}
   timeBeforeWheelDissapears: 1
   PlayerEnergy: {fileID: 1555648128}
+--- !u!1001 &1600524810
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1954782742}
+    m_Modifications:
+    - target: {fileID: 4704467933006764015, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Name
+      value: Consume tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166363757295504536, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240877803977003619, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Size.x
+      value: 2.2775807
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240877803977003619, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2158493
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240877803977003619, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Size.z
+      value: 1.1319603
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240877803977003619, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240877803977003619, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Center.x
+      value: -0.1597745
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240877803977003619, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Center.y
+      value: -0.46905118
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240877803977003619, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: m_Center.z
+      value: 0.065981306
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912560743874202614, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+      propertyPath: text
+      value: Press both Left and Right bumpers to Grab! Once you have grabbed something,
+        mash both buttons to consume it. Try to consume an enemy!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+--- !u!4 &1600524811 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5584679928480396360, guid: bce17fe420843aa4891def5e48defd87, type: 3}
+  m_PrefabInstance: {fileID: 1600524810}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1600647867
 GameObject:
   m_ObjectHideFlags: 0
@@ -76131,6 +76234,7 @@ Transform:
   - {fileID: 4513437853827579593}
   - {fileID: 64914335}
   - {fileID: 153950005}
+  - {fileID: 1600524811}
   m_Father: {fileID: 784331086}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1959018236

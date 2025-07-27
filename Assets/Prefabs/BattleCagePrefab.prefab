@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 1349243769182917197}
   - component: {fileID: 163436697809590585}
   - component: {fileID: 7792510157434384375}
+  - component: {fileID: 8150802761068069663}
   m_Layer: 16
   m_Name: BattleCagePrefab
   m_TagString: Untagged
@@ -177,6 +178,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawners: []
   TheBattleCage: {fileID: 2593088311680135285}
+  animator: {fileID: 8150802761068069663}
+--- !u!95 &8150802761068069663
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071890118616926836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d874ac5af9a00e845a88184885305840, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2593088311680135285
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2370107904315481862
 Transform:
   m_ObjectHideFlags: 0
@@ -503,7 +527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3574691646940013970
 Transform:
   m_ObjectHideFlags: 0
