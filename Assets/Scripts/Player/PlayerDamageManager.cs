@@ -13,16 +13,17 @@ public class PlayerDamageManager : MonoBehaviour
     {
         PlayerCheckPoint.maxPlayerHealth += HealHeallth;
     }
-    public void TakeDamage(float damage, float stun, string attackID)
+    public void TakeDamage(Vector3 damageStunKnockBack, string attackID, Transform direction)
     {
         if (timer > 0) return;        
         timer = Player.PlayerVars.IFrames;
-        Debug.Log("Player took" + damage + "damage with" + stun + "stun");
-        Player.CurrentPlayerHealth -= damage;
-        if(stun > Player.CurrentPlayerUnstoppable)
+        Debug.Log("Player took" + damageStunKnockBack.x + "damage with" + damageStunKnockBack.y + "stun");
+        Player.CurrentPlayerHealth -= damageStunKnockBack.x;
+        if(damageStunKnockBack.y > Player.CurrentPlayerUnstoppable)
         {
             Debug.Log("Stunned");
             Player.PlayerStunned();
+            KnockBack(damageStunKnockBack.z, direction.forward);
         }
 
         if(Player.CurrentPlayerHealth <= 0)
@@ -49,5 +50,10 @@ public class PlayerDamageManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+    }
+
+    private void KnockBack(float knockBack, Vector3 direction)
+    {
+        Player.Rigidbody.AddForce(direction * knockBack, ForceMode.Impulse);
     }
 }

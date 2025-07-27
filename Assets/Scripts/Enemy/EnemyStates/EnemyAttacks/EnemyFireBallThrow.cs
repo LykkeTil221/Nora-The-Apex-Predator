@@ -16,6 +16,7 @@ public class EnemyFireBallThrow : EnemyBaseState
     {
         timer = FireBallDuration;
         currentNumberOfThrows = NumberOfThrows;
+        Enemy.ChangeMaterial(1);
     }
 
     public override void FixedUpdate(EnemyStateManager Enemy)
@@ -49,11 +50,12 @@ public class EnemyFireBallThrow : EnemyBaseState
             else
             {
                 StateEnd(Enemy);
+                Enemy.ChangeMaterial(0);
             }
         }
         else if(timer <= FireBallActionEnd)
         {
-            
+            Enemy.ChangeMaterial(3);
         }
         else if(timer <= FireBallStartupEnd)
         {
@@ -63,7 +65,7 @@ public class EnemyFireBallThrow : EnemyBaseState
                 Debug.Log("Enemy Threw FireBall");
                 hasThrownBall = true;
                 GameObject newFireBall = Instantiate(Fireball, Enemy.projectileThrowPoint.transform.position, Enemy.projectileThrowPoint.transform.rotation);
-
+                Enemy.ChangeMaterial(2);
 
             }
 

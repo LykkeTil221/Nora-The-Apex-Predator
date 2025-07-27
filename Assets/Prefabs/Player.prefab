@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3864121789707038979}
   m_Layer: 3
   m_Name: PhysicsTestCube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,6 +108,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1555879203882657102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6412846137972773095}
+  m_Layer: 0
+  m_Name: GCBL
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6412846137972773095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555879203882657102}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.45, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 936257706167636209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824731075223129512
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +225,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3196242397601382083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7178405356334301086}
+  m_Layer: 0
+  m_Name: GCFR
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7178405356334301086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196242397601382083}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.45, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 936257706167636209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3381835893507322194
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +546,10 @@ Transform:
   - {fileID: 4947498418796768575}
   - {fileID: 3692049803387403970}
   - {fileID: 765152488568338899}
+  - {fileID: 7178405356334301086}
+  - {fileID: 2947186454207812292}
+  - {fileID: 2256110983334902888}
+  - {fileID: 6412846137972773095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4921723019400948524
@@ -778,6 +844,7 @@ MonoBehaviour:
   AbsorbAttackName: Absorb
   unlockManager: {fileID: 1746179723577960398}
   energy: {fileID: 6626079345202424005}
+  currentSpawnPosition: {fileID: 0}
 --- !u!54 &6834867973877977622
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -824,6 +891,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 257
   maxDistanceForGroundCheck: 0.2
+  FR: {fileID: 7178405356334301086}
+  FL: {fileID: 2947186454207812292}
+  BR: {fileID: 2256110983334902888}
+  BL: {fileID: 6412846137972773095}
 --- !u!114 &954560257316998923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,6 +955,37 @@ MonoBehaviour:
   uiHeartManager: {fileID: 0}
   unlockedFireBall: 0
   unlockedSolarPulse: 0
+--- !u!1 &5911207694232877891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2256110983334902888}
+  m_Layer: 0
+  m_Name: GCBR
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2256110983334902888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911207694232877891}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.45, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 936257706167636209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5927794109063980928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1110,7 @@ MonoBehaviour:
   attackName: Punch
   attackVariable: {fileID: 11400000, guid: 75cfc26e009bcda42979c1c2035e075d, type: 2}
   DamageType: {fileID: 11400000, guid: 799852f0be7c9c146bb6b1075bb141e2, type: 2}
+  knockBack: 170
 --- !u!1 &6679670085269585772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1235,7 @@ MonoBehaviour:
   attackName: Slam
   attackVariable: {fileID: 11400000, guid: 75cfc26e009bcda42979c1c2035e075d, type: 2}
   DamageType: {fileID: 11400000, guid: 799852f0be7c9c146bb6b1075bb141e2, type: 2}
+  knockBack: 300
 --- !u!1 &6829522055373635299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1607,38 @@ MonoBehaviour:
   attackName: Punch
   attackVariable: {fileID: 11400000, guid: 75cfc26e009bcda42979c1c2035e075d, type: 2}
   DamageType: {fileID: 11400000, guid: 799852f0be7c9c146bb6b1075bb141e2, type: 2}
+  knockBack: 170
+--- !u!1 &8246845006556733981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2947186454207812292}
+  m_Layer: 0
+  m_Name: GCFL
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2947186454207812292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246845006556733981}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.45, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 936257706167636209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9029481409616255552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1690,7 @@ MonoBehaviour:
   attackName: SolarPulse
   attackVariable: {fileID: 11400000, guid: 75cfc26e009bcda42979c1c2035e075d, type: 2}
   DamageType: {fileID: 11400000, guid: fa1e9bbb7e7351543a09cbc6d002d7f1, type: 2}
+  knockBack: 400
 --- !u!65 &6914220004208594274
 BoxCollider:
   m_ObjectHideFlags: 0

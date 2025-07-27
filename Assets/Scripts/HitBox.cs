@@ -5,6 +5,7 @@ public class HitBox : MonoBehaviour
     [SerializeField] private string attackName;
     [SerializeField] PlayerAttackVariables attackVariable;
     [SerializeField] EgenFil DamageType;
+    [SerializeField] private float knockBack;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Triggered");
@@ -12,7 +13,7 @@ public class HitBox : MonoBehaviour
         {
             float damageMultiplier = 1f;
             if (other.GetComponent<HurtBox>().ResistanceType != null) damageMultiplier = other.GetComponent<HurtBox>().ResistanceType.GetResistance(DamageType);
-            other.GetComponent<HurtBox>().TakeDamageFuncion(attackVariable.Attack[attackName].x * damageMultiplier, attackVariable.Attack[attackName].y, attackName);
+            other.GetComponent<HurtBox>().TakeDamageFuncion(attackVariable.Attack[attackName].x * damageMultiplier, attackVariable.Attack[attackName].y, knockBack , attackName, transform);
         }
         if (other.GetComponent<PlayerCheckPoint>())
         {

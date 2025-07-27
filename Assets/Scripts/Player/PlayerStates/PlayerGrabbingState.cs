@@ -11,6 +11,7 @@ public class PlayerGrabbingState : PlayerBaseState
     
     public override void EnterState(PlayerStateManager Player)
     {
+        Player.CurrentPlayerUnstoppable += Player.PlayerVars.GrappleUnstoppableNegativeBonus;
         if(Enemy != null)
         {
             Player.grappleState.hasGrabbedEnemy = false;
@@ -93,10 +94,10 @@ public class PlayerGrabbingState : PlayerBaseState
             leftTimer = Player.PlayerVars.AbsorbAttackDuration;
             if (Enemy != null)
             {
-                Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+                Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(new Vector3(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y,0), Player.AbsorbAttackName, Player.transform);
             }
             
-            if (Object != null) Object.TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            if (Object != null) Object.TakeDamage(new Vector3(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, 0), Player.AbsorbAttackName, Player.transform);
         }
     }
 
@@ -110,8 +111,8 @@ public class PlayerGrabbingState : PlayerBaseState
         {
             Debug.Log("RightAbsorb");
             rightTimer = Player.PlayerVars.AbsorbAttackDuration;
-            if (Enemy != null) Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
-            if (Object != null) Object.TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            if (Enemy != null) Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(new Vector3(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, 0), Player.AbsorbAttackName, Player.transform);
+            if (Object != null) Object.TakeDamage(new Vector3(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, 0), Player.AbsorbAttackName, Player.transform);
         }
     }
 
@@ -138,6 +139,7 @@ public class PlayerGrabbingState : PlayerBaseState
         Object = null;
         HasGrabbedObject = false;
         HasGrabbedEnemy = false;
+        Player.CurrentPlayerUnstoppable -= Player.PlayerVars.GrappleUnstoppableNegativeBonus;
     }
     public override void Stun(PlayerStateManager Player)
     {
@@ -148,13 +150,15 @@ public class PlayerGrabbingState : PlayerBaseState
             Enemy = null;
         }
         Player.GrappleCollider.SetActive(false);
-        Enemy.SwitchToNeutralState();
         Player.grappleState.Enemy = null;
         Player.grappleState.hasGrabbedObject = false;
         Player.grappleState.Object = null;
         Object = null;
         HasGrabbedObject = false;
         HasGrabbedEnemy = false;
+        Player.CurrentPlayerUnstoppable -= Player.PlayerVars.GrappleUnstoppableNegativeBonus;
+        Player.GrappleCollider.SetActive(false);
+        Enemy.SwitchToNeutralState();
     }
 
     public void Consume(PlayerStateManager Player)
@@ -224,5 +228,6 @@ public class PlayerGrabbingState : PlayerBaseState
         Object = null;
         HasGrabbedObject = false;
         HasGrabbedEnemy = false;
+        Player.CurrentPlayerUnstoppable -= Player.PlayerVars.GrappleUnstoppableNegativeBonus;
     }
 }

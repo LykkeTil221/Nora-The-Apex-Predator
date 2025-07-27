@@ -77,6 +77,7 @@ public class PlayerAttackAirState : PlayerBaseState
 
     public override void LeftPunch(PlayerStateManager Player)
     {
+        if (hasHitGround) return;
         if (!attackLeft)
         {
             Player.SwitchState(Player.grappleState);
@@ -89,6 +90,7 @@ public class PlayerAttackAirState : PlayerBaseState
     }
     public override void RightPunch(PlayerStateManager Player)
     {
+        if (hasHitGround) return;
         if (attackLeft)
         {
             Player.SwitchState(Player.grappleState);
@@ -101,6 +103,7 @@ public class PlayerAttackAirState : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
+        if (hasHitGround) return;
         Player.AirAttackCollider.SetActive(false);
         Player.SwitchToNeutralState();
     }

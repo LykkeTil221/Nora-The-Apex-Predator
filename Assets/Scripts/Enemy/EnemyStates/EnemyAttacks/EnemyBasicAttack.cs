@@ -10,6 +10,7 @@ public class EnemyBasicAttack : EnemyBaseState
     {
         Debug.Log("Enemy entered basic attack state ??");
         timer = AttackDuration;
+        Enemy.ChangeMaterial(1);
     }
 
     public override void FixedUpdate(EnemyStateManager Enemy)
@@ -33,14 +34,17 @@ public class EnemyBasicAttack : EnemyBaseState
         if(timer <= 0)
         {
             Enemy.SwitchToNeutralState();
+            Enemy.ChangeMaterial(0);
         }
         else if(timer <= AttackActionEnd)
         {
             Enemy.AttackCollider.SetActive(false);
+                Enemy.ChangeMaterial(3);
         }
         else if(timer <= AttackStartupEnd)
         {
             Enemy.AttackCollider.SetActive(true);
+            Enemy.ChangeMaterial(2);
         }
     }
 }

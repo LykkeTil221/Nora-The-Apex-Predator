@@ -33,6 +33,13 @@ public class EnemyStateManager : MonoBehaviour
     public float timeBetweenAttacks;
 
     [HideInInspector]public EnemySpawner spawner;
+
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private Material regularMaterial;
+    [SerializeField] private Material StartupMaterial;
+    [SerializeField] private Material ActionMaterial;
+    [SerializeField] private Material EndMaterial;
+    [SerializeField] private Material StunnedMaterial;
     public bool isGrabbed;
     private void Awake()
     {
@@ -99,6 +106,31 @@ public class EnemyStateManager : MonoBehaviour
     public void OnEnemyDeath()
     {
         spawner.KillEnemy();
+        ChangeMaterial(0);
+        AttackCollider.SetActive(false);
         
+    }
+
+    public void ChangeMaterial(int state)
+    {
+        switch (state)
+        {
+            case 0:
+                meshRenderer.material = regularMaterial;
+                break;
+            case 1:
+                meshRenderer.material = StartupMaterial;
+                break;
+            case 2:
+                meshRenderer.material = ActionMaterial;
+                break;
+            case 3:
+                meshRenderer.material = EndMaterial;
+                break;
+            case 4:
+                meshRenderer.material = StunnedMaterial;
+                break;
+        }
+            
     }
 }

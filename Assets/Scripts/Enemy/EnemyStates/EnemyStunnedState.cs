@@ -6,6 +6,7 @@ public class EnemyStunnedState : EnemyBaseState
     public override void EnterState(EnemyStateManager Enemy)
     {
         timer = Enemy.EnemyStats.StunDuration;
+        Enemy.ChangeMaterial(4);
     }
 
     public override void FixedUpdate(EnemyStateManager Enemy)
@@ -32,6 +33,7 @@ public class EnemyStunnedState : EnemyBaseState
             if(timer < 0)
             {
                 Enemy.SwitchToNeutralState();
+                Enemy.ChangeMaterial(0);
             }
         }
         else

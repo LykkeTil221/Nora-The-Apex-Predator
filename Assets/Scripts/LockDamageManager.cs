@@ -22,18 +22,18 @@ public class LockDamageManager : MonoBehaviour
 
     [SerializeField] private int HitParticleAmount;
     [SerializeField] private int DestroyedParticleAmount;
-    public void TakeDamage(float damage, float stun, string attackID)
+    public void TakeDamage(Vector3 damageStunKnockBack, string attackID, Transform direction)
     {
         if (isDestroyed) return;
         if (Discriminates)
         {
             if (AcceptableAttacks.Contains(attackID))
             {
-                ObjectIsHit();
-                Health -= damage;
+                ObjectIsHit(direction);
+                Health -= damageStunKnockBack.x;
                 if (Health <= 0)
                 {
-                    DestroyObject();
+                    DestroyObject(direction);
                 }
             }
             else
@@ -43,27 +43,30 @@ public class LockDamageManager : MonoBehaviour
         }
         else
         {
-            ObjectIsHit();
-            Health -= damage;
+            ObjectIsHit(direction);
+            Health -= damageStunKnockBack.x;
             if (Health <= 0)
             {
-                DestroyObject();
+                DestroyObject(direction);
             }
         }
         
     }
-    private void ObjectIsHit()
+    private void ObjectIsHit(Transform direction)
     {
         animator.playbackTime = 0;
         animator.Play("CrystalIdle");
         animator.Play("CrystalHit");
+        hitParticle.transform.rotation = direction.rotation;
+
         hitParticle.Emit(HitParticleAmount);
     }
 
-    private void DestroyObject()
+    private void DestroyObject(Transform direction)
     {
         isDestroyed = true;
         visual.SetActive(false);
+        hitParticle.transform.rotation = direction.rotation;
         hitParticle.Emit(DestroyedParticleAmount);
         timer = DeathTime;
         PhysicsCollider.enabled = false;

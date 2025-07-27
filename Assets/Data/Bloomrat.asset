@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ad759c0734c6c4dae530ca2ab907a5, type: 3}
   m_Name: Bloomrat
   m_EditorClassIdentifier: 
-  Health: 5
+  Health: 12
   Unstoppable: 0
   StunDuration: 0.5
   IFrameDuration: 0

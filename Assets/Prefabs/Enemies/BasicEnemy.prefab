@@ -424,6 +424,12 @@ MonoBehaviour:
   projectileThrowPoint: {fileID: 9155208943027661853}
   timeBetweenAttacks: 0
   spawner: {fileID: 0}
+  meshRenderer: {fileID: 7083639695942045992}
+  regularMaterial: {fileID: 2100000, guid: 09ef36452d3221b4993c71f7bd15e5ec, type: 2}
+  StartupMaterial: {fileID: 2100000, guid: 6a031542642715a46ae40be285b6c3a3, type: 2}
+  ActionMaterial: {fileID: 2100000, guid: d80a4dfa87a04e14792def35fcdde54a, type: 2}
+  EndMaterial: {fileID: 2100000, guid: df06d38c37234f54c835fd50677b8a84, type: 2}
+  StunnedMaterial: {fileID: 2100000, guid: c0bb9f53a23970444806537b13e0e832, type: 2}
   isGrabbed: 0
 --- !u!114 &506111301553445565
 MonoBehaviour:

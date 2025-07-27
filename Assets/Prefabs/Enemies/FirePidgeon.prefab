@@ -61,6 +61,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4d8097733ff57e346b24aa205a8ee6f6, type: 2}
     - target: {fileID: 6793870574842403159, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
+      propertyPath: EndMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c258d4134b898c4ebb91948fdc8597a, type: 2}
+    - target: {fileID: 6793870574842403159, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
+      propertyPath: ActionMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ee76231b1008fe04c897bca68f77b17d, type: 2}
+    - target: {fileID: 6793870574842403159, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
+      propertyPath: StartupMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b28cbc8c6da57443b30ea610e08bf18, type: 2}
+    - target: {fileID: 6793870574842403159, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
+      propertyPath: StunnedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: b17300d37d5215e4ea745b4ac10ed3b2, type: 2}
+    - target: {fileID: 6793870574842403159, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
+      propertyPath: regularMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6b4c93eef94148948a5da42dd711a764, type: 2}
+    - target: {fileID: 6793870574842403159, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
       propertyPath: 'Attacks.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 99a81077e6be57f4f8d44a9d6fc6fd78, type: 2}
