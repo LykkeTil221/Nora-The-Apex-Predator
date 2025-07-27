@@ -8,7 +8,7 @@ public class PlayerGrappleState : PlayerBaseState
     public bool hasGrabbedObject;
     private int ArmState;
     public EnemyStateManager Enemy;
-    public GameObject Object;
+    public LockDamageManager Object;
 
     private PlayerStateManager stateManager;
     public override void EnterState(PlayerStateManager Player)
@@ -151,7 +151,7 @@ public class PlayerGrappleState : PlayerBaseState
         hasGrabbedEnemy = true;
         Enemy = GrabbedEnemy;
     }
-    public void ObjectIsGrabbed(GameObject grabbedObject)
+    public void ObjectIsGrabbed(LockDamageManager grabbedObject)
     {
         Object = grabbedObject;
         hasGrabbedObject = true;

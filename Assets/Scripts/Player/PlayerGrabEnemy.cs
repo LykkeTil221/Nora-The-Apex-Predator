@@ -3,8 +3,9 @@ using UnityEngine.Events;
 public class PlayerGrabEnemy : MonoBehaviour
 {
     [SerializeField] UnityEvent<EnemyStateManager> GrabEnemy;
-    [SerializeField] UnityEvent<GameObject> GrabObject;
+    [SerializeField] UnityEvent<LockDamageManager> GrabObject;
     public EnemyStateManager currentGrabbedEnemy;
+    public LockDamageManager currentGrabbedObject;
     [SerializeField] private Transform player;
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +18,8 @@ public class PlayerGrabEnemy : MonoBehaviour
         if (other.CompareTag("Object"))
         {
             Debug.Log("Arm hit obect");
-            GrabObject.Invoke(other.transform.parent.gameObject);
+            currentGrabbedObject = other.transform.parent.GetComponent<LockDamageManager>();
+            GrabObject.Invoke(currentGrabbedObject);
         }
     }
 

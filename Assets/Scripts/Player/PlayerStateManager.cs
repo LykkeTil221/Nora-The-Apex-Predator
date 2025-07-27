@@ -243,7 +243,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         grappleState.EnemyIsGrabbed(Enemy);
     }
-    public void GrabObject(GameObject grabbedObject)
+    public void GrabObject(LockDamageManager grabbedObject)
     {
         Debug.Log(grabbedObject + " is grabbed");
         grappleState.ObjectIsGrabbed(grabbedObject);

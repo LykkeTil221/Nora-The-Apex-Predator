@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public class LockDamageManager : MonoBehaviour
 {
+    public bool isFruit;
     [SerializeField] private float Health;
  
     [SerializeField] private List<string> AcceptableAttacks;
@@ -10,10 +11,11 @@ public class LockDamageManager : MonoBehaviour
 
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem hitParticle;
-    private bool isDestroyed;
+    [HideInInspector] public bool isDestroyed;
 
     [SerializeField] GameObject visual;
     [SerializeField] Collider PhysicsCollider;
+    [SerializeField] Collider damageCollider;
 
     float timer;
     [SerializeField] private float DeathTime = 1;
@@ -65,6 +67,7 @@ public class LockDamageManager : MonoBehaviour
         hitParticle.Emit(DestroyedParticleAmount);
         timer = DeathTime;
         PhysicsCollider.enabled = false;
+        damageCollider.enabled = false;
     }
     private void Update()
     {

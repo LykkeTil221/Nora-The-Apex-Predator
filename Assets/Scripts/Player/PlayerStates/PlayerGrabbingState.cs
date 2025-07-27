@@ -5,7 +5,7 @@ public class PlayerGrabbingState : PlayerBaseState
     public EnemyStateManager Enemy;
     public bool HasGrabbedEnemy;
     public bool HasGrabbedObject;
-    public GameObject Object;
+    public LockDamageManager Object;
     private float leftTimer;
     private float rightTimer;
     
@@ -54,7 +54,7 @@ public class PlayerGrabbingState : PlayerBaseState
             Debug.Log("Consumed Enemy");
             Consume(Player);
         }
-        if(HasGrabbedObject && !Object)
+        if(HasGrabbedObject && Object.isDestroyed)
         {
             Debug.Log("Consumed Object");
             Consume(Player);
@@ -96,7 +96,7 @@ public class PlayerGrabbingState : PlayerBaseState
                 Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
             }
             
-            if (Object != null) Object.gameObject.GetComponent<LockDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            if (Object != null) Object.TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
         }
     }
 
@@ -111,7 +111,7 @@ public class PlayerGrabbingState : PlayerBaseState
             Debug.Log("RightAbsorb");
             rightTimer = Player.PlayerVars.AbsorbAttackDuration;
             if (Enemy != null) Enemy.gameObject.GetComponent<EnemyDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
-            if (Object != null) Object.gameObject.GetComponent<LockDamageManager>().TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
+            if (Object != null) Object.TakeDamage(Player.Attacks.Attack[Player.AbsorbAttackName].x, Player.Attacks.Attack[Player.AbsorbAttackName].y, Player.AbsorbAttackName);
         }
     }
 
@@ -199,7 +199,12 @@ public class PlayerGrabbingState : PlayerBaseState
         if (HasGrabbedObject)
         {
             //Player.EnergyManager.GainEnergy(25);
-            
+            Debug.Log("PlayerConsumedObject");
+            if (Object.isFruit)
+            {
+                Player.EnergyManager.MaxGainEnergy();
+                Player.HealthManager.HealHeallth(4*4);
+            }
         }
 
         if (Enemy != null)

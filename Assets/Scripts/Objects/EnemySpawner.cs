@@ -4,6 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] EnemyStateManager EnemyToSpawn;
     private EnemyStateManager Enemy;
+    public bool isBattleCage;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
         Enemy.transform.position = transform.position;
         Enemy.transform.rotation = transform.rotation;
         Enemy.gameObject.SetActive(false);
+        if (isBattleCage) { Destroy(gameObject); }
     }
 
     

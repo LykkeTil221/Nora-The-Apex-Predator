@@ -23,6 +23,10 @@ public class PlayerEnergy : MonoBehaviour
     {
         SetMaxEnergy();
     }
+    private void Start()
+    {
+        PlayerCheckPoint.maxPlayerEnergy += SetMaxEnergy;
+    }
     public void SetMaxEnergy()
     {
         MaxPlayerEnergy = PlayerStats.PlayerEnergy + ExtraEnergy;

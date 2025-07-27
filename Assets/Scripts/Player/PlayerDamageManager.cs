@@ -9,6 +9,10 @@ public class PlayerDamageManager : MonoBehaviour
 
     public delegate void GameOver(PlayerStateManager player);
     public static GameOver gameOver;
+    private void Start()
+    {
+        PlayerCheckPoint.maxPlayerHealth += HealHeallth;
+    }
     public void TakeDamage(float damage, float stun, string attackID)
     {
         if (timer > 0) return;        
