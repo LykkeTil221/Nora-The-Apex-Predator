@@ -27,9 +27,14 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager Player)
     {
+        
+    }
+
+    public override void FixedUpdateState(PlayerStateManager Player)
+    {
         timer -= Time.deltaTime;
 
-        if(timer > Player.PlayerVars.PunchStartupEnd)
+        if (timer > Player.PlayerVars.PunchStartupEnd)
         {
             if (Player.MoveDirection != Vector3.zero)
             {
@@ -39,7 +44,7 @@ public class PlayerAttackState : PlayerBaseState
             }
         }
 
-        if(doOtherPunch && timer < Player.PlayerVars.PunchActionEnd)
+        if (doOtherPunch && timer < Player.PlayerVars.PunchActionEnd)
         {
             if (!wasLastInputLeft)
             {
@@ -53,16 +58,16 @@ public class PlayerAttackState : PlayerBaseState
             }
             doOtherPunch = false;
         }
-        
 
-        if(timer < Player.PlayerVars.PunchActionEnd)
+
+        if (timer < Player.PlayerVars.PunchActionEnd)
         {
             Player.ChangePlayerMaterial(3);
             Player.LeftArmCollider.SetActive(false);
             Player.RightArmCollider.SetActive(false);
             Player.Rigidbody.linearVelocity = Vector3.zero;
         }
-        else if(timer < Player.PlayerVars.PunchStartupEnd)
+        else if (timer < Player.PlayerVars.PunchStartupEnd)
         {
             if (wasLastInputLeft)
             {
@@ -74,7 +79,7 @@ public class PlayerAttackState : PlayerBaseState
             }
             Player.ChangePlayerMaterial(2);
 
-            Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.PunchForwardSpeed,ForceMode.Impulse);
+            Player.Rigidbody.AddForce(Player.transform.forward * Player.PlayerVars.PunchForwardSpeed, ForceMode.Impulse);
         }
         if (timer < Player.PlayerVars.PunchActionEnd && !Player.IsGrounded)
         {
@@ -88,11 +93,6 @@ public class PlayerAttackState : PlayerBaseState
             Player.SwitchToNeutralState();
             currentCombo = 0;
         }
-    }
-
-    public override void FixedUpdateState(PlayerStateManager Player)
-    {
-
     }
 
     public override void OnCollissionEnter(PlayerStateManager Player, Collision collision)
