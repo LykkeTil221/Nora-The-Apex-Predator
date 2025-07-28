@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private ParticleSystem spawningParticle;
     [SerializeField] private ParticleSystem finishedSpawningParticle;
     [SerializeField] private int finishSpawnParticleCount;
-    private void Start()
+    private void Awake()
     {
         Enemy = Instantiate(EnemyToSpawn, transform);
         Enemy.gameObject.SetActive(false);

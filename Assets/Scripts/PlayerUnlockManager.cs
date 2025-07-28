@@ -8,6 +8,9 @@ public class PlayerUnlockManager : MonoBehaviour
     [SerializeField] UIHeartManager uiHeartManager;
     public bool unlockedFireBall;
     public bool unlockedSolarPulse;
+
+    public delegate void UnlockMutationScreen(int number);
+    public static UnlockMutationScreen UnlockMuationScreenActivate;
     public void CollectEssence(bool isHealthEssense, int collectedEssense)
     {
         if (isHealthEssense)
@@ -45,13 +48,17 @@ public class PlayerUnlockManager : MonoBehaviour
 
     public void UnlockSolarPulse()
     {
+        if (unlockedSolarPulse) return;
         unlockedSolarPulse = true;
         Player.currentLeftSpecial = Player.solarPulseState;
+        UnlockMuationScreenActivate.Invoke(0);
     }
 
     public void UnlockFireBall()
     {
+        if(unlockedFireBall) return;
         Player.currentRightSpecial = Player.fireBallState;
         unlockedFireBall = true;
+        UnlockMuationScreenActivate.Invoke(1);
     }
 }

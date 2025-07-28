@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 6372913880751654808, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
       propertyPath: ResistanceType
       value: 
-      objectReference: {fileID: 11400000, guid: 484d4713e69ae4a4aac8905801e45288, type: 2}
+      objectReference: {fileID: 11400000, guid: 1c46f85d2a6e8e2469f6be00fa774744, type: 2}
     - target: {fileID: 6793870574842403159, guid: 16c325e53ebc445448797d6e8e159f46, type: 3}
       propertyPath: EnemyStats
       value: 

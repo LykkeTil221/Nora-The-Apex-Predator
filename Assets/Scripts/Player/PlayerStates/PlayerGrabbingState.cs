@@ -8,7 +8,8 @@ public class PlayerGrabbingState : PlayerBaseState
     public LockDamageManager Object;
     private float leftTimer;
     private float rightTimer;
-    
+
+
     public override void EnterState(PlayerStateManager Player)
     {
         Player.CurrentPlayerUnstoppable += Player.PlayerVars.GrappleUnstoppableNegativeBonus;
@@ -122,6 +123,7 @@ public class PlayerGrabbingState : PlayerBaseState
     }
     public override void Cancel(PlayerStateManager Player)
     {
+
         if (Enemy != null)
         {
             Enemy.Rigidbody.isKinematic = false;

@@ -65,6 +65,9 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerBaseState currentRightSpecial;
 
     public Transform currentSpawnPosition;
+
+    public delegate void CloseUnlockScreenDelegate();
+    public static CloseUnlockScreenDelegate CloseUnlockScreen;
     private void Awake()
     {
         SetMaxHealth();
@@ -216,6 +219,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public void Cancel(InputAction.CallbackContext context)
     {
+        CloseUnlockScreen.Invoke();
         if (context.canceled) return;
         print("Cancel Input");
         currentState.Cancel(this);

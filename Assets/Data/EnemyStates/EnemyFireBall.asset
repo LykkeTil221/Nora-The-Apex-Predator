@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce9407f7f68c5e4290c3a19232c7213, type: 3}
   m_Name: EnemyFireBall
   m_EditorClassIdentifier: 
-  FireBallDuration: 0.7
+  FireBallDuration: 0.8
   FireBallStartupEnd: 0.45
   FireBallActionEnd: 0
   NumberOfThrows: 2
