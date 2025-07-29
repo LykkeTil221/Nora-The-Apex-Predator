@@ -21576,6 +21576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "FireBall l\xE5s"
       objectReference: {fileID: 0}
+    - target: {fileID: 7111830240952505775, guid: 58ab8f34517fc5548b890707e1e18d78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29739,6 +29743,84 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4181222433777690843, guid: a3ccef506d38eea45a8493b49c375be2, type: 3}
   m_PrefabInstance: {fileID: 598130326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &601266432
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1307126475}
+    m_Modifications:
+    - target: {fileID: 537013889389316538, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_Name
+      value: "Solar Puls L\xE5s (5)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 16.92648
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.1244755
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4057394
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 90.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0014137552
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0009859524
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00008586602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.162
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.113
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603064193746652248, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+      propertyPath: Health
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+--- !u!4 &601266433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3160903027763158952, guid: 89c64db9bc914bc40956166a7f30fd87, type: 3}
+  m_PrefabInstance: {fileID: 601266432}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &601938309
 PrefabInstance:
@@ -58870,6 +58952,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 668540274}
+  - {fileID: 601266433}
   - {fileID: 1267241270}
   - {fileID: 2050578005}
   - {fileID: 2090023641}
