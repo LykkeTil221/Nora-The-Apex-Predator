@@ -26,7 +26,7 @@ public class BattleCage : MonoBehaviour
         for (int i = 0; i < enemySpawners.Count; i++)
         {
             enemySpawners[i].isBattleCage = true;
-            enemySpawners[i].battleCage = this;
+            //enemySpawners[i].battleCage = this;
             enemySpawners[i].StartSpawning();
         }
     }

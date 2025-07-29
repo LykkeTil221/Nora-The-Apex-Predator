@@ -5,7 +5,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] EnemyStateManager EnemyToSpawn;
     private EnemyStateManager Enemy;
     [HideInInspector] public bool isBattleCage;
-    public BattleCage battleCage;
+    public BattleRoomController battleCage;
     private bool isSpawning;
     private float timer;
     [SerializeField] private float timeToSpawn;
@@ -16,11 +16,24 @@ public class EnemySpawner : MonoBehaviour
     {
         Enemy = Instantiate(EnemyToSpawn, transform);
         Enemy.gameObject.SetActive(false);
-        StartSpawning();
-        PlayerCheckPoint.RespawnEnemies += StartSpawning;
         
-
         PlayerDamageManager.gameOver += GameOver;
+        
+       
+    }
+
+    private void Start()
+    {
+        if (isBattleCage) 
+        {
+            PlayerCheckPoint.RespawnEnemies += ResetSpawner;
+        }
+        else
+        {
+            StartSpawning();
+            PlayerCheckPoint.RespawnEnemies += StartSpawning;
+        }
+        
     }
 
     private void Update()
@@ -43,6 +56,11 @@ public class EnemySpawner : MonoBehaviour
         Enemy.gameObject.SetActive(false);
         timer = timeToSpawn;
         isSpawning = true;
+    }
+
+    public void ResetSpawner()
+    {
+        Enemy.gameObject.SetActive(false);
     }
 
     private void SpawnEnemy()
@@ -75,7 +93,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void GameOver(PlayerStateManager player)
     {
+        if (battleCage == null) return;
         battleCage.ReAddSpawnerOnGameOver(this);
     }
-
+    private void OnDisable()
+    {
+        PlayerCheckPoint.RespawnEnemies -= StartSpawning;
+        PlayerDamageManager.gameOver -= GameOver;
+        PlayerCheckPoint.RespawnEnemies -= ResetSpawner;
+    }
 }
