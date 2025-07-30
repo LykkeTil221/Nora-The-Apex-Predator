@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem essenceParticle;
     [HideInInspector] public bool hasEssence;
     EnemyBaseState currentState;
     public bool IsGrounded;
@@ -51,6 +52,10 @@ public class EnemyStateManager : MonoBehaviour
         currentState = GroundedState;
         currentHealth = EnemyStats.Health;
         currentState.EnterState(this);
+        if (hasEssence)
+        {
+            essenceParticle.Play();
+        }
     }
 
     private void Update()
