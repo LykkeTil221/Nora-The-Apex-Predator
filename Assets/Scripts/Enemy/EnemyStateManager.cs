@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
 {
+    [HideInInspector] public bool hasEssence;
     EnemyBaseState currentState;
     public bool IsGrounded;
 

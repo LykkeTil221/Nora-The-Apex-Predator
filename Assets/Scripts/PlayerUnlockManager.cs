@@ -1,37 +1,28 @@
 using UnityEngine;
-
+using TMPro;
 public class PlayerUnlockManager : MonoBehaviour
 {
     [SerializeField] private PlayerStateManager Player;
-    public int HealthEssenceAmount;
-    public int EnergyEssenseAmount;
+    private int EssenceAmount;
+    private int CrystalAmount;
+    [SerializeField] private TextMeshProUGUI EssenceText;
+    [SerializeField] private TextMeshProUGUI CrystalText;
     [SerializeField] UIHeartManager uiHeartManager;
     public bool unlockedFireBall;
     public bool unlockedSolarPulse;
 
     public delegate void UnlockMutationScreen(int number);
     public static UnlockMutationScreen UnlockMuationScreenActivate;
-    public void CollectEssence(bool isHealthEssense, int collectedEssense)
+    public void CollectEssence( int collectedEssense)
     {
-        if (isHealthEssense)
-        {
-            HealthEssenceAmount += collectedEssense;
-            if(HealthEssenceAmount >= Player.PlayerVars.HealthEssenceValue)
-            {
-                HealthEssenceAmount -= Player.PlayerVars.HealthEssenceValue;
-                UnlockNewHeart();
-            }
-            Debug.Log("Current Health essense = " + HealthEssenceAmount);
-        }
-        else
-        {
-            EnergyEssenseAmount += collectedEssense;
-            if(EnergyEssenseAmount >= Player.PlayerVars.EnergyEssenceValue)
-            {
-                EnergyEssenseAmount -= Player.PlayerVars.EnergyEssenceValue;
-                UnlockMoreEnergy();
-            }
-        }
+       EssenceAmount += collectedEssense;
+        EssenceText.text = EssenceAmount.ToString();
+    }
+
+    public void CollectCrystal(int collectedCrystal)
+    {
+        CrystalAmount += collectedCrystal;
+        CrystalText.text = CrystalAmount.ToString();
     }
     public void UnlockMoreEnergy()
     {

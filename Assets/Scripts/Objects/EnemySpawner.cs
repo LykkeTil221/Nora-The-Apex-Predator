@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public bool hasEssence;
+    private bool hasBeenDefeated;
     [SerializeField] EnemyStateManager EnemyToSpawn;
     private EnemyStateManager Enemy;
     [HideInInspector] public bool isBattleCage;
@@ -19,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
         
         PlayerDamageManager.gameOver += GameOver;
         
+        if(hasEssence)Enemy.hasEssence = true;
        
     }
 
@@ -88,6 +91,13 @@ public class EnemySpawner : MonoBehaviour
         if (isBattleCage) 
         {
             battleCage.RemoveSpawnerFromList(this);
+        }
+        if (hasEssence)
+        {
+            hasBeenDefeated = true;
+            PlayerCheckPoint.RespawnEnemies -= StartSpawning;
+            PlayerDamageManager.gameOver -= GameOver;
+            PlayerCheckPoint.RespawnEnemies -= ResetSpawner;
         }
     }
 

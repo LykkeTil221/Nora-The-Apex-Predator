@@ -173,23 +173,10 @@ public class PlayerGrabbingState : PlayerBaseState
             healthGain = Mathf.Ceil(healthGain);
             Player.HealthManager.HealHeallth(healthGain);
             Debug.Log("PLayer healed " + healthGain);
-            if(Enemy.EnemyStats.enemyEssense == EnemyVariablesScrub.EnemyEssense.QHeart)
-            {
-                Player.unlockManager.CollectEssence(true, 1);
 
-            }
-            if (Enemy.EnemyStats.enemyEssense == EnemyVariablesScrub.EnemyEssense.FullHeart)
+            if (Enemy.hasEssence)
             {
-                Player.unlockManager.CollectEssence(true, 4);
-
-            }
-            if (Enemy.EnemyStats.enemyEssense == EnemyVariablesScrub.EnemyEssense.QEnergy)
-            {
-                Player.unlockManager.CollectEssence(false, 1);
-            }
-            if (Enemy.EnemyStats.enemyEssense == EnemyVariablesScrub.EnemyEssense.FullEnergy)
-            {
-                Player.unlockManager.CollectEssence(false, 4);
+                Player.unlockManager.CollectEssence(1);
             }
             if(Enemy.EnemyStats.enemyMutation == EnemyVariablesScrub.EnemyMutation.SolarPulse)
             {
