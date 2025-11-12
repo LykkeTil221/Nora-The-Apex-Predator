@@ -27,6 +27,7 @@ public class EnemyGroundedState : EnemyBaseState
     {
         // Move
         if (!Enemy.PlayerIsDetected) return;
+
         if (Vector3.Distance(Enemy.transform.position, Enemy.EnemyStats.playerObject.GameObject.transform.position) < Enemy.EnemyStats.SweetSpotRange.x)
         {
             Enemy.Rigidbody.AddForce(-Enemy.transform.forward * Enemy.EnemyStats.MoveSpeed, ForceMode.Force);
@@ -41,10 +42,10 @@ public class EnemyGroundedState : EnemyBaseState
             Enemy.PerformNextAttack();
         }
 
-        
+
 
         // Rotate
-        Vector3 directionToPlayer = (Enemy.EnemyStats.playerObject.GameObject.transform.position - Enemy.transform.position).normalized;
+        Vector3 directionToPlayer = ((Enemy.EnemyStats.playerObject.GameObject.transform.position - Enemy.transform.position) + new Vector3(Mathf.Sin(Time.time), 0, Mathf.Cos(Time.time)) * 3.0f).normalized;
         Enemy.transform.rotation = Quaternion.Euler(0f, Quaternion.Slerp(Enemy.transform.rotation, Quaternion.LookRotation(directionToPlayer), Enemy.EnemyStats.RotateSpeed * Time.deltaTime).eulerAngles.y, 0f);
     }
     

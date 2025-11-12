@@ -27,8 +27,8 @@ MonoBehaviour:
   PunchStartupEnd: 0.3
   PunchForwardSpeed: 40
   DodgeLungeForce: 550
-  DodgeActionEnd: 0.3
-  DodgeDuration: 0.5
+  DodgeActionEnd: 0.5
+  DodgeDuration: 0.35
   DodgeEnergyCost: 25
   GrappleDuration: 1
   GrappleStartupEnd: 0.8

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bloomrat
   m_EditorClassIdentifier: 
   Health: 12
-  Unstoppable: 0
+  Unstoppable: 10
   StunDuration: 0.5
   IFrameDuration: 0
   MoveSpeed: 500
